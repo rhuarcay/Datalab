@@ -21,28 +21,30 @@ from sklearn.model_selection import GridSearchCV
 
 def Import_Data():
     import zipfile as zipp
-    z = zipp.ZipFile('Spam_Data_Mail.zip')
+    z = zipp.ZipFile('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
     
     names = z.namelist()
-    names = names[1:]
+    #names = names[1:]
     print(names[0])
+   
     
-    for name in names:
+    for name in names[:-1]:
         email = z.read(name)
         emails.append(email)
-    for name in names:
-        tok = name.split('/')
-        labels.append(tok[0])
-    for name in names:
-        tok = name.split('/')
-        namen.append(tok[1])
+    for name in names[:-1]:
+        tok = name.split('.')
+        labels.append(tok[1])
+    for name in names[:-1]:
+        tok = name.split('.')
+        namen.append(tok[0])
     for email in emails:
         global text
         text=""
         message = ml.message_from_bytes(email)
         extrakt_payload(message)
         email_text.append(text)
-
+    
+    
 def extrakt_payload(message):
     global text
     if message.is_multipart():
@@ -80,8 +82,8 @@ def Model_mit_Norm_Optimierung():
     ])
     
     clf = GridSearchCV(pipeline, param_grid = {
-        "svm__C": [0.01,0.1,1,10,100],
-        "svm__gamma": [0.01,0.1,1,10,100],
+        "svm__C": [0.01,0.1,1],
+        "svm__gamma": [0.01,0.1,1],
        # "tffidf": [True,False],
        #"cv__max_df": [0.25,0.5, 0.75, 1.0],
        #"cv__min_df": [0.0001,0.001,0.01,0.1]
