@@ -80,8 +80,11 @@ def bad_classifier(data):
     
     classifier.fit(Xtr, Ytr)
     
+    Ypred = classifier.predict(Xts)
     print('Score:')
-    print(classifier.balanced_accuracy_score(Xts, Yts))
+    print(balanced_accuracy_score(Yts, Ypred))
+    
+    return classifier
     
     
 def classifier_count(datapath):
@@ -104,13 +107,14 @@ def classifier_count(datapath):
     
     print('Classifier trainiert!')
     
+    y_pred = classifier.predict(x_test)
     print('Score:')
-    print(classifier.balanced_accuracy_score(x_test,y_test))
+    print(balanced_accuracy_score(y_test, y_pred))
     
     return cv, classifier
     
 
-def classify(datapath, cv, classifier):
+def classify_count(datapath, cv, classifier):
     emails, labels, emails_text = Import(datapath)
     
     email_features = cv.transform(emails_text)
@@ -126,10 +130,31 @@ def write_to_file(names, label):
         f.write("%s;%d" % (name, pred))
     
     f.close()
+    
+#--------------------------------------------------------------------------------
+#Hier die Funktionen für das Speichern und Laden eines Models:
 
-#bad_classifier('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
+#model: Das Model, was gespeichert werden soll - sei es ein Tupel oder einfach nur der Classifier
+#filename: Name der file, in dem das landen soll. In der Funktion wird noch die Dateiendung gesetzt, wird hier nicht benötigt
+def save_model(model, filename):
+    from joblib import dump
+    name = filename + '.joblib'
+    dump(model, name)
+    print('Model gespeichert unter ' + name)
+    
+#filepath: Pfad zu der Datei, die geladen werden soll. (Oder nur der Dateiname, wenn die Datei direkt da ist)
+#TODO: noch überprüfen, obs ne .joblib-Datei ist.
+def load_model(filepath):
+    from joblib import load
+    model = load(filepath)
+    print('Model geladen von ' + filepath)
+    return model
+#--------------------------------------------------------------------------------
+    
 
-#Das macht das Trainingsset per default auf 25%. Merken!
+P = bad_classifier('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
 
-cv, classifier = classifier_count('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
-P = classify('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip', cv, classifier)
+
+
+#cv, classifier = classifier_count('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
+#P = classify_count('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip', cv, classifier)
