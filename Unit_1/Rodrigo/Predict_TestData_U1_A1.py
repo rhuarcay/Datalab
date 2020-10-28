@@ -31,6 +31,8 @@ for email in emails_Test:
     extrakt_payload(message)
     email_Test_text.append(text)
 
+
+#Dieser Teil in der Kommandozeile ausführen
 print("Test Data is being analysed")
 predicted_Test = clf.predict(email_Test_text)
 print("Prediction for the Test Date done")
@@ -41,3 +43,4 @@ for i in range(len(names)):
 
 df = pd.DataFrame(result, columns=['result'])
 export_csv = df.to_csv('export_Prediction_result.csv', index=False,header=False)
+#----------------------------------------------------
