@@ -29,7 +29,7 @@ def extrakt_payload(message):
         text = text + " " + message.get_payload()
 
 
-z = zipp.ZipFile('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
+z = zipp.ZipFile('C:/Users/Rodrigo/Desktop/TU-Braunschweig/WS20-21/Datalab/Unit_1/Trainingsdaten/U1_A1_Training.zip')
 
 names = z.namelist()
 
