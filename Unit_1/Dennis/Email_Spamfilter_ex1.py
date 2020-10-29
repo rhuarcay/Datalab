@@ -152,8 +152,8 @@ def load_model(filepath):
 #--------------------------------------------------------------------------------
     
 
-P = bad_classifier('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
-
+#P = bad_classifier('../Data/Data_Ex1.zip')
+emails,labels,emails_text = Import('../Data/Data_Ex2.zip')
 
 
 #cv, classifier = classifier_count('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
