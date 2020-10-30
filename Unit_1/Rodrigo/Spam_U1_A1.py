@@ -38,7 +38,7 @@ for name in names[:-1]:
     emails.append(email)
 for name in names[:-1]:
     tok = name.split('.')
-    labels.append(tok[1])
+    labels.append(int(tok[1]))
 for name in names[:-1]:
     tok = name.split('.')
     namen.append(tok[0])

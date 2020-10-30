@@ -37,10 +37,18 @@ print("Test Data is being analysed")
 predicted_Test = clf.predict(email_Test_text)
 print("Prediction for the Test Date done")
 
-result = []
-for i in range(len(names)):
-    result.append(names[i]+";"+predicted_Test[i])
+#Methode 1 um Datei zu erzeugen------
+#result = []
+#for i in range(len(names)):
+#    result.append(names[i]+";"+predicted_Test[i])
+#
+#df = pd.DataFrame(result, columns=['result'])
+#export_csv = df.to_csv('export_Prediction_result.csv', index=False,header=False)
+#----------------------------------------------
 
-df = pd.DataFrame(result, columns=['result'])
-export_csv = df.to_csv('export_Prediction_result.csv', index=False,header=False)
-#----------------------------------------------------
+#Methode 2 um Datei zu erzeugen(wie as der VL)
+f =open("spam1-test.predict", "wt")
+for name, pred in zip(names,predicted_Test):
+    f.write("%s;%d\n" % (name,pred))
+f.close()
+!ren spam1-test.predict output.csv
