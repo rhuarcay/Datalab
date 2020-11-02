@@ -11,8 +11,11 @@ import zipfile as zipp
 import sklearn.svm as svm
 import email as ml
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.metrics import balanced_accuracy_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import GridSearchCV
 
 
 def Import(datapath):
@@ -112,7 +115,79 @@ def classifier_count(datapath):
     print(balanced_accuracy_score(y_test, y_pred))
     
     return cv, classifier
+
+#--------------------------------------------------------------------------------
+
+def classifier_tree(datapath):
+    emails, labels, emails_text = Import(datapath)
+    X_train, X_test, Y_train, Y_test = train_test_split(emails_text, labels, random_state=0)
     
+    cv = CountVectorizer(encoding='utf-32', min_df = 0.001, max_df = 0.25)
+    cv.fit(X_train)
+    
+    x_train = cv.transform(X_train)
+    x_test = cv.transform(X_test)
+    y_train = np.array(Y_train)
+    y_test = np.array(Y_test)
+    
+    print('Trainiere Classifier, bitte warten...')
+    
+    classifier = RandomForestClassifier(max_depth=2, random_state=0, n_estimators=1000, min_samples_leaf=10)
+    classifier.fit(x_train, y_train)
+    
+    print('Classifier trainiert!')
+    
+    y_pred = classifier.predict(x_test)
+    print('Score:')
+    print(balanced_accuracy_score(y_test, y_pred))
+    
+    return cv, classifier
+    
+ 
+#--------------------------------------------------------------------------------
+  
+def classifier_tree_pipeline(datapath):
+    emails, labels, emails_text = Import(datapath)
+    X_train, X_test, Y_train, Y_test = train_test_split(emails_text, labels, random_state=0)
+    
+    #cv = CountVectorizer(encoding='utf-32', min_df = 0.001, max_df = 0.25)
+    #cv.fit(X_train)
+    
+    #x_train = cv.transform(X_train)
+    #x_test = cv.transform(X_test)
+    #y_train = np.array(Y_train)
+    #y_test = np.array(Y_test)
+    
+    pipeline = Pipeline([
+        ("cv", CountVectorizer()),
+        ("tffidf", TfidfTransformer()),
+        ("trees", RandomForestClassifier())    
+    ])
+    
+    clf = GridSearchCV(pipeline, param_grid = {
+        "trees__max_depth": [2,3,4],
+        "trees__random_state": [0],
+        "trees__min_samples_leaf": [1,2,5,10,20],
+        "trees__n_estimators": [100,250,500,1000,2000,5000],
+        #"tffidf": [True,False],
+       #"cv__max_df": [0.25,0.5, 0.75, 1.0],
+       #"cv__min_df": [0.0001,0.001,0.01,0.1]
+    })
+    
+    print('Trainiere Classifier, bitte warten...')
+    
+    clf.fit(X_train, Y_train)
+    
+    print('Beste Parameter:')
+    print(clf.best_params_)
+    
+    y_pred = clf.predict(X_test)
+    print('Score:')
+    print(balanced_accuracy_score(Y_test,y_pred))
+    
+    return clf
+
+#--------------------------------------------------------------------------------
 
 def classify_count(datapath, cv, classifier):
     emails, labels, emails_text = Import(datapath)
@@ -153,8 +228,10 @@ def load_model(filepath):
     
 
 #P = bad_classifier('../Data/Data_Ex1.zip')
-emails,labels,emails_text = Import('../Data/Data_Ex2.zip')
+#emails,labels,emails_text = Import('../Data/Data_Ex2.zip')
 
 
 #cv, classifier = classifier_count('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip')
 #P = classify_count('../Data/882c3758e63a664bed3dfceb44f60c96363572c8.zip', cv, classifier)
+
+classifier = classifier_tree_pipeline('../Data/Data_Ex1.zip')
