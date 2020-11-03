@@ -29,7 +29,7 @@ def extrakt_payload(message):
         text = text + " " + message.get_payload()
 
 
-z = zipp.ZipFile('C:/Users/Rodrigo/Desktop/TU-Braunschweig/WS20-21/Datalab/Unit_1/Trainingsdaten/U1_A1_Training.zip')
+z = zipp.ZipFile('../Data/Data_Ex1.zip')
 
 names = z.namelist()
 
@@ -48,7 +48,7 @@ for email in emails:
     extrakt_payload(message)
     email_text.append(text)
 
-X_Train, X_Test, Y_Train, Y_Test = train_test_split(email_text,labels, random_state=0)
+X_Train, X_Test, Y_Train, Y_Test = train_test_split(email_text,labels)
 
 #Pipeline um mehrere möglichkeiten zu probieren
 pipeline = Pipeline([
@@ -66,7 +66,7 @@ clf = GridSearchCV(pipeline, param_grid = {
 })
 
 print("Model is being trained")
-clf.fit(X_Train, Y_Train)
+clf.fit(email_text, labels)
 
 print(clf.best_params_)
 print(clf.score(X_Test,Y_Test))

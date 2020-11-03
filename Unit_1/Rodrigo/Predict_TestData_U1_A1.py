@@ -20,7 +20,7 @@ def extrakt_payload(message):
 emails_Test=[]
 email_Test_text=[]
 
-z = zipp.ZipFile('C:/Users/Rodrigo/Desktop/TU-Braunschweig/WS20-21/Datalab/Unit_1/TestDaten/U1_A1_Test.zip')
+z = zipp.ZipFile('../Data/Testdata_Ex1.zip')
 names = z.namelist()
 for name in names:
     email = z.read(name)
@@ -51,4 +51,4 @@ f =open("spam1-test.predict", "wt")
 for name, pred in zip(names,predicted_Test):
     f.write("%s;%d\n" % (name,pred))
 f.close()
-!ren spam1-test.predict output.csv
+#!ren spam1-test.predict output1.csv
