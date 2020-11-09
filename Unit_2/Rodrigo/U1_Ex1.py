@@ -8,7 +8,6 @@ FILE = '../Data/Data_Ex1.zip'
 
 import zipfile as zipp
 
-
 def extrakt_Names(file):
     zf = zipp.ZipFile(file)
     name = zf.namelist()
@@ -35,3 +34,21 @@ text = []
 namelist = extrakt_Names(FILE)
 text = extrakt_Tree(namelist)
 
+'''In [39]: def extrakt_Tree(nameList):
+    ...:     features_tree=[]
+    ...:     for names in nameList:
+    ...:         tree=[]
+    ...:         try:
+    ...:             f = zipp.ZipFile(names)
+    ...:         except zipp.BadZipfile:
+    ...:             tree.append("BadZipfile")
+    ...:             features_tree.append(tree)
+    ...:             continue
+    ...:         wordFile = f.namelist()
+    ...:         for structure in wordFile[1:]:
+    ...:             tok = structure.split('/')
+    ...:             txt = ""
+    ...:             tree.append(txt.join(tok[1:]))
+    ...:         features_tree.append(tree)
+    ...:     return features_tree
+'''
