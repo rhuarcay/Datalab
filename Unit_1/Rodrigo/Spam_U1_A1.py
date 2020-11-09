@@ -29,7 +29,7 @@ def extrakt_payload(message):
         text = text + " " + message.get_payload()
 
 
-z = zipp.ZipFile('../Data/Data_Ex1.zip')
+z = zipp.ZipFile('../Data/Data_Ex3.zip')
 
 names = z.namelist()
 

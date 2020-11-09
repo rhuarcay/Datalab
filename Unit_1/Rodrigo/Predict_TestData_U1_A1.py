@@ -20,7 +20,7 @@ def extrakt_payload(message):
 emails_Test=[]
 email_Test_text=[]
 
-z = zipp.ZipFile('../Data/Testdata_Ex1.zip')
+z = zipp.ZipFile('../Data/Testdata_Ex3.zip')
 names = z.namelist()
 for name in names:
     email = z.read(name)
@@ -47,8 +47,8 @@ print("Prediction for the Test Date done")
 #----------------------------------------------
 
 #Methode 2 um Datei zu erzeugen(wie as der VL)
-f =open("spam1-test.predict", "wt")
+f =open("spam3-test.predict", "wt")
 for name, pred in zip(names,predicted_Test):
     f.write("%s;%d\n" % (name,pred))
 f.close()
-#!ren spam1-test.predict output1.csv
+#!ren spam3-test.predict output3.csv

@@ -65,7 +65,7 @@ data/spam1-test/twfldkdleqhjgzff.x;1
 data/spam1-test/wmjrosfffzdjelni.x;1
 data/spam1-test/tvyijzfsgxaruane.x;1
 data/spam1-test/eajibhncpkowyrio.x;1
-data/spam1-test/museqaakqqtcdcfn.x;1
+data/spam1-test/museqaakqqtcdcfn.x;0
 data/spam1-test/djwmdtjzptdlzzul.x;0
 data/spam1-test/amqwkcdnrbpkvqei.x;1
 data/spam1-test/pngumeitewlityqf.x;0
@@ -121,7 +121,7 @@ data/spam1-test/prxyrbferxysrtrr.x;1
 data/spam1-test/lldxqptplffzyplu.x;1
 data/spam1-test/yzimyrvoarfthhgc.x;0
 data/spam1-test/gzshjcnxzgaicwuu.x;1
-data/spam1-test/osyfchnujznysxgg.x;1
+data/spam1-test/osyfchnujznysxgg.x;0
 data/spam1-test/xinzyjsfvohjkeco.x;1
 data/spam1-test/xylsjpfhzsterefb.x;1
 data/spam1-test/zmddltkgxuzhrtmx.x;0
@@ -153,7 +153,7 @@ data/spam1-test/cegctfrrfozdhwiw.x;0
 data/spam1-test/eomwbbgmwosdbrca.x;0
 data/spam1-test/upbarfxjabyxvizc.x;0
 data/spam1-test/bvbzvwpxgfhxttug.x;1
-data/spam1-test/eyugvllfivgouqpq.x;1
+data/spam1-test/eyugvllfivgouqpq.x;0
 data/spam1-test/kuxleprjnjtvhcwq.x;0
 data/spam1-test/mwjhmfwxezzkivab.x;1
 data/spam1-test/msoakgdxxrysduag.x;1
@@ -443,7 +443,7 @@ data/spam1-test/zzbtzzjowimygdhr.x;1
 data/spam1-test/nobmhdoqxbiwttky.x;1
 data/spam1-test/wvutniaebdowegyj.x;1
 data/spam1-test/lbsbjabtvpakxnqa.x;1
-data/spam1-test/wcpohfqjpetmvvuq.x;0
+data/spam1-test/wcpohfqjpetmvvuq.x;1
 data/spam1-test/izempqjehtivfzhu.x;0
 data/spam1-test/dburhfhileoudhrx.x;1
 data/spam1-test/yuhousujqjvamgvc.x;0
@@ -546,7 +546,7 @@ data/spam1-test/bzxyzgqegthelqyg.x;1
 data/spam1-test/mlsmzmynsctfeulw.x;0
 data/spam1-test/rptdrkqalyjeyppt.x;1
 data/spam1-test/cmrvgrdhqsfwifov.x;0
-data/spam1-test/ncplgfcsnxkbbgjx.x;1
+data/spam1-test/ncplgfcsnxkbbgjx.x;0
 data/spam1-test/tvtednakikjbdcfd.x;1
 data/spam1-test/plofcmkykvsvlvjw.x;1
 data/spam1-test/kkdbzeqnqblzrwvf.x;1
@@ -830,7 +830,7 @@ data/spam1-test/luqnjgzwjretawxf.x;1
 data/spam1-test/lzrtfytweohmvqsm.x;1
 data/spam1-test/msncrbtvedsveprf.x;1
 data/spam1-test/apdoeegfjkvjxsjx.x;1
-data/spam1-test/zmftboayzrztuick.x;1
+data/spam1-test/zmftboayzrztuick.x;0
 data/spam1-test/fifxavyznxfirsxx.x;1
 data/spam1-test/twnqbrrvfqdtjoiz.x;0
 data/spam1-test/lfgcfishqkdozynd.x;1
@@ -1146,7 +1146,7 @@ data/spam1-test/zevnrxhajobxxsep.x;0
 data/spam1-test/fniqmtgfbtdzsvyn.x;0
 data/spam1-test/hvphzcwaesajuatp.x;1
 data/spam1-test/qgvgtilwfkgwwnmn.x;1
-data/spam1-test/hhthxleijdrrtjbj.x;1
+data/spam1-test/hhthxleijdrrtjbj.x;0
 data/spam1-test/gtklrhllulgvdwvv.x;0
 data/spam1-test/ahzqdofocmcjmxod.x;0
 data/spam1-test/bcrzvqtaqnuvtdpu.x;0
@@ -1199,7 +1199,7 @@ data/spam1-test/efrsuupowzpcyjjf.x;1
 data/spam1-test/ipojpyppjlcdiafe.x;1
 data/spam1-test/counozuwuahgkpnx.x;0
 data/spam1-test/prnbqovurdvtpayq.x;1
-data/spam1-test/fqckwwbsjytruvaj.x;1
+data/spam1-test/fqckwwbsjytruvaj.x;0
 data/spam1-test/emjbjvxbyzfulzco.x;1
 data/spam1-test/ezxvzafuuvafjehv.x;1
 data/spam1-test/ngzhdpozelwchgwq.x;0
@@ -1750,8 +1750,8 @@ data/spam1-test/rogymaoiledlbopg.x;1
 data/spam1-test/zotuyuucwnmisoci.x;1
 data/spam1-test/ukiqwuufiypixosc.x;1
 data/spam1-test/ugwwpvspehxivtit.x;1
-data/spam1-test/mucujrbfresjyyjx.x;1
-data/spam1-test/tfktrzapbyypqvoj.x;1
+data/spam1-test/mucujrbfresjyyjx.x;0
+data/spam1-test/tfktrzapbyypqvoj.x;0
 data/spam1-test/lnqjspqbepnlcerh.x;0
 data/spam1-test/zwpxcsdnvjnvrarz.x;0
 data/spam1-test/ztyriivuavnapgxh.x;1
@@ -1800,7 +1800,7 @@ data/spam1-test/fjqjitvvvfmpepvt.x;1
 data/spam1-test/rmuysnbnoaxnwzxq.x;0
 data/spam1-test/ylhprraoskcgksrq.x;0
 data/spam1-test/imfnjufkgxcqdijc.x;0
-data/spam1-test/erjwkghxtqzlmces.x;1
+data/spam1-test/erjwkghxtqzlmces.x;0
 data/spam1-test/uurjmkimdenhdghb.x;0
 data/spam1-test/sjczxufjgajocpiy.x;0
 data/spam1-test/uwlhrpvafkozzpzu.x;1
@@ -2036,7 +2036,7 @@ data/spam1-test/kfjygwyjgmlzyjru.x;1
 data/spam1-test/cbugzynfmzlbklwt.x;0
 data/spam1-test/hxrszjhutexarmup.x;0
 data/spam1-test/vykgfkdlyisjfujl.x;0
-data/spam1-test/pirnljvgueijkfce.x;1
+data/spam1-test/pirnljvgueijkfce.x;0
 data/spam1-test/oattcbstethvgiaj.x;1
 data/spam1-test/lxciiqnsurgbwbvt.x;1
 data/spam1-test/tnnttntgjutjzfqv.x;1
@@ -2236,7 +2236,7 @@ data/spam1-test/tetnkapdvfqivpqk.x;1
 data/spam1-test/sfjqlwdcqnvfscyz.x;1
 data/spam1-test/xbrtztgigbzmsimi.x;0
 data/spam1-test/neteremlukzhazzt.x;1
-data/spam1-test/pzvagyqxkfvomblt.x;0
+data/spam1-test/pzvagyqxkfvomblt.x;1
 data/spam1-test/fflvljmnrurvsugy.x;1
 data/spam1-test/hmnmxzzwjfmiwtuh.x;0
 data/spam1-test/ustksevawewuvstd.x;0
@@ -2412,7 +2412,7 @@ data/spam1-test/zpvjtjupqoyjpjai.x;0
 data/spam1-test/pzoeyskcdteuxxdm.x;1
 data/spam1-test/dmoxqpdgthycjfhi.x;1
 data/spam1-test/qrxuopnlrhmjpskm.x;1
-data/spam1-test/ifabokdizyvngbon.x;1
+data/spam1-test/ifabokdizyvngbon.x;0
 data/spam1-test/sihmexjfccnxzlgc.x;0
 data/spam1-test/vhtpiaoqfrvprgha.x;0
 data/spam1-test/kpfdimjrgkjqvpng.x;0
@@ -2460,7 +2460,7 @@ data/spam1-test/ldeaiaowqfstgvje.x;1
 data/spam1-test/hqyuaxmqdxgnresq.x;1
 data/spam1-test/cziceskehtllaegp.x;1
 data/spam1-test/ubditzlmegbgyuia.x;0
-data/spam1-test/jheegpfqvwpajova.x;1
+data/spam1-test/jheegpfqvwpajova.x;0
 data/spam1-test/qvinogemxayujggy.x;1
 data/spam1-test/jjizgchwujrdmchm.x;1
 data/spam1-test/ksflnpheedhsjzlh.x;0
@@ -2654,7 +2654,7 @@ data/spam1-test/ylczbxpyoaidanee.x;0
 data/spam1-test/sejlifqydgljgfma.x;1
 data/spam1-test/ouxuxdbdrmolvewk.x;0
 data/spam1-test/yjyucklhgarebnvx.x;1
-data/spam1-test/anqslaeypzumgdvs.x;1
+data/spam1-test/anqslaeypzumgdvs.x;0
 data/spam1-test/kjmzuabqlxxoguqd.x;0
 data/spam1-test/jenhraumakxrqddr.x;1
 data/spam1-test/tvgndcoxtsisjqtw.x;0
@@ -2856,7 +2856,7 @@ data/spam1-test/wnjjsgxmbumtlnkt.x;1
 data/spam1-test/eshfwpxwqtnmvtch.x;1
 data/spam1-test/ohioigiyoqhetgsu.x;1
 data/spam1-test/cgihghnzprzypuoz.x;1
-data/spam1-test/zsjpcomujbuwypvt.x;1
+data/spam1-test/zsjpcomujbuwypvt.x;0
 data/spam1-test/pfnmritlljlebqgl.x;1
 data/spam1-test/tbuzvsltccfsghwr.x;0
 data/spam1-test/jkeiuowsawnzdras.x;1
@@ -2929,7 +2929,7 @@ data/spam1-test/bulhmlhzerqizzij.x;1
 data/spam1-test/xetnmxvgondjjehq.x;1
 data/spam1-test/xstvfjossavqcpxg.x;0
 data/spam1-test/jufgrolsabyeecvg.x;1
-data/spam1-test/eoxvxxygxkyiqbqh.x;1
+data/spam1-test/eoxvxxygxkyiqbqh.x;0
 data/spam1-test/zwwjpbyaduacapmj.x;1
 data/spam1-test/uypgydzshrstvsws.x;1
 data/spam1-test/fkdmxzcynqxwddid.x;1
@@ -3288,7 +3288,7 @@ data/spam1-test/uwavqnqkxbqtegzp.x;0
 data/spam1-test/xaklkxdqgxlyjaqc.x;0
 data/spam1-test/svvlotfygsafylyy.x;0
 data/spam1-test/czlqlrwiviftgqre.x;0
-data/spam1-test/nenqhngkczimnban.x;1
+data/spam1-test/nenqhngkczimnban.x;0
 data/spam1-test/spapjvrfaljlxdsy.x;1
 data/spam1-test/pticfczitylhjbbv.x;1
 data/spam1-test/vxmqoqnlicicbenw.x;0
@@ -3482,7 +3482,7 @@ data/spam1-test/unneemnqmgbqmzkx.x;1
 data/spam1-test/sftzumzegmhoxdha.x;1
 data/spam1-test/uldnxyejryyeceuy.x;0
 data/spam1-test/ixqkofqekvlemtpb.x;0
-data/spam1-test/svrlcmocnqtijglb.x;1
+data/spam1-test/svrlcmocnqtijglb.x;0
 data/spam1-test/pcullaswvawdgnsv.x;0
 data/spam1-test/ekzpdnyaajuqhjnp.x;0
 data/spam1-test/txpihblfhmnadqau.x;1
@@ -3699,7 +3699,7 @@ data/spam1-test/xcpqtfxxnqvmdkxi.x;1
 data/spam1-test/uihaolucydielvpu.x;1
 data/spam1-test/dvssmttxuhfctgoe.x;0
 data/spam1-test/nxqlznnrlkkeeufr.x;1
-data/spam1-test/ezoclyimrqyeqtym.x;1
+data/spam1-test/ezoclyimrqyeqtym.x;0
 data/spam1-test/kdcssmfsgrcxccpy.x;0
 data/spam1-test/ovhvzxytjonzojto.x;1
 data/spam1-test/wkzslxzcwxxxpoky.x;0
@@ -3863,7 +3863,7 @@ data/spam1-test/cjgpshsgqpmaingf.x;1
 data/spam1-test/gxkkxjkvxypnpmvw.x;1
 data/spam1-test/qeegmdnqaovzujmh.x;0
 data/spam1-test/hbacnkcxximxprug.x;0
-data/spam1-test/btattmhlgamdpeaa.x;1
+data/spam1-test/btattmhlgamdpeaa.x;0
 data/spam1-test/ywfiaabzmpmqjfhv.x;0
 data/spam1-test/hxfwmgdwhwghzvec.x;1
 data/spam1-test/nmfuovyyekikqeam.x;0
@@ -4053,7 +4053,7 @@ data/spam1-test/ovkwcrjpjaxypbef.x;0
 data/spam1-test/utoqykreweplnynj.x;0
 data/spam1-test/sejzbpyilrlnhdzg.x;0
 data/spam1-test/kfhwetxrruovwkfy.x;0
-data/spam1-test/ljymeykuhbeukuil.x;1
+data/spam1-test/ljymeykuhbeukuil.x;0
 data/spam1-test/jkwijmprqzruudgw.x;1
 data/spam1-test/fwewtdmuymkbhwpe.x;1
 data/spam1-test/asuksnyjrvrfdplz.x;1
@@ -4525,7 +4525,7 @@ data/spam1-test/jgtpukvtpsbwysmi.x;0
 data/spam1-test/zuqvvvrbgkqbzzmx.x;1
 data/spam1-test/wlcsowzvljubnvfj.x;1
 data/spam1-test/astehjxlalugfuvo.x;1
-data/spam1-test/zvbmtcszhwpwpiob.x;1
+data/spam1-test/zvbmtcszhwpwpiob.x;0
 data/spam1-test/bfnnjpkuouwdvnqa.x;1
 data/spam1-test/cbfxtlsykdtydhgu.x;0
 data/spam1-test/kvknoafqqsettrtv.x;1
@@ -4804,7 +4804,7 @@ data/spam1-test/yxbzhencqjehddxo.x;1
 data/spam1-test/mhqnnytytvxzvazw.x;1
 data/spam1-test/tniucquuvhnmaiit.x;0
 data/spam1-test/xidfouxxzwbcaklp.x;1
-data/spam1-test/enynppnjagavyhpr.x;1
+data/spam1-test/enynppnjagavyhpr.x;0
 data/spam1-test/spdsdmujntfumwkz.x;1
 data/spam1-test/ukjteifqwenggbwn.x;1
 data/spam1-test/nhpsefdzuogamcti.x;0
@@ -5241,7 +5241,7 @@ data/spam1-test/amwimefsrdcwsjms.x;0
 data/spam1-test/xthnmwfflxzsqymf.x;1
 data/spam1-test/naxhwtsrgmkvcpda.x;1
 data/spam1-test/ptjvzbuvzzdcncsx.x;0
-data/spam1-test/daslardurybnrzhu.x;1
+data/spam1-test/daslardurybnrzhu.x;0
 data/spam1-test/dqaejwpyhxokxebq.x;0
 data/spam1-test/vfebhvxjmlkctubn.x;0
 data/spam1-test/ddewlvctbrruuwva.x;1
@@ -5426,7 +5426,7 @@ data/spam1-test/ilamsubvkefjoddp.x;1
 data/spam1-test/teqlaoujqnsqwwms.x;0
 data/spam1-test/brmkunmwyleupfsi.x;1
 data/spam1-test/wejhkzndkiowizmv.x;1
-data/spam1-test/mqiwruledhucrdgi.x;1
+data/spam1-test/mqiwruledhucrdgi.x;0
 data/spam1-test/ljiulzkozpyijscr.x;1
 data/spam1-test/ocdxhmeebefklyyv.x;0
 data/spam1-test/uxkdcgccemaxuomc.x;0
@@ -5441,7 +5441,7 @@ data/spam1-test/goyibihmvnigkkvr.x;0
 data/spam1-test/oadeuvunzyquhvfc.x;0
 data/spam1-test/ubtfztjapgsffcfs.x;0
 data/spam1-test/jonoftsuvbllhabp.x;1
-data/spam1-test/btflsmsdbtvrzdfa.x;1
+data/spam1-test/btflsmsdbtvrzdfa.x;0
 data/spam1-test/jgkaxmhffoqbqmwg.x;1
 data/spam1-test/jnxzceiekugczcra.x;1
 data/spam1-test/tvnwkqxpfamokvvw.x;0
@@ -5456,7 +5456,7 @@ data/spam1-test/yzznnadsavsdyzue.x;1
 data/spam1-test/exvawxgcwebqyzqv.x;1
 data/spam1-test/hhtotvwjjnyfjexp.x;1
 data/spam1-test/jqqfscnxwdulzqng.x;1
-data/spam1-test/wzgrqxgvpcxvpjtf.x;1
+data/spam1-test/wzgrqxgvpcxvpjtf.x;0
 data/spam1-test/qwrbldfyitqxpbpr.x;0
 data/spam1-test/xrkkqmhknybsfpog.x;1
 data/spam1-test/wmnccgaseqdhlaut.x;0
@@ -5769,7 +5769,7 @@ data/spam1-test/soguqyelvspdvqhp.x;1
 data/spam1-test/zbzasfjqkeemyuyj.x;1
 data/spam1-test/fxebssxcimtugnuy.x;1
 data/spam1-test/hzpiddfxmvobmgcf.x;1
-data/spam1-test/xozlviqvvugkquvk.x;0
+data/spam1-test/xozlviqvvugkquvk.x;1
 data/spam1-test/gfptbdfnluytigia.x;0
 data/spam1-test/llxtvmuppruwsrks.x;0
 data/spam1-test/gymmywiktobqezcz.x;1
@@ -6141,7 +6141,7 @@ data/spam1-test/qpkjrphtnnfgwoux.x;0
 data/spam1-test/xnlrqwqylpxbzmvz.x;0
 data/spam1-test/ozeqdvysnnstiasg.x;0
 data/spam1-test/snflolpauvdfenkn.x;0
-data/spam1-test/mxxoweeudxtwhqsg.x;1
+data/spam1-test/mxxoweeudxtwhqsg.x;0
 data/spam1-test/zwqjponaexvwycxl.x;1
 data/spam1-test/uxuhsiermeaelzsi.x;1
 data/spam1-test/ujcmvepadzosyuqg.x;1
@@ -6179,7 +6179,7 @@ data/spam1-test/cosqbqhsryuoqrnt.x;1
 data/spam1-test/ziruazzeygmejptm.x;1
 data/spam1-test/rwyaorltycrvclml.x;0
 data/spam1-test/ncrgfkztsrbhvwyh.x;1
-data/spam1-test/kmoizvxjzsgooioe.x;0
+data/spam1-test/kmoizvxjzsgooioe.x;1
 data/spam1-test/mvzafrfpyjwprjrl.x;1
 data/spam1-test/emqgosmeoybkomdj.x;0
 data/spam1-test/vnigpwpfxkqpqmqs.x;1
@@ -6459,7 +6459,7 @@ data/spam1-test/cormskevsbyklfli.x;0
 data/spam1-test/ulmmxcurjfaycxct.x;0
 data/spam1-test/qhndfouzcdolmdyu.x;0
 data/spam1-test/bbevswezoomxbepv.x;1
-data/spam1-test/nkqrdxxlpsxuezap.x;1
+data/spam1-test/nkqrdxxlpsxuezap.x;0
 data/spam1-test/oqaeolimlcrhzzmf.x;1
 data/spam1-test/rjhdymgzzbfmfptg.x;0
 data/spam1-test/dmmqaxzwnmtvfkce.x;1
@@ -6536,7 +6536,7 @@ data/spam1-test/uwcgtsdjgwwwcpun.x;0
 data/spam1-test/tlqsogzdblqxuqyg.x;0
 data/spam1-test/mbdrcrnkscjmxfvy.x;0
 data/spam1-test/yhdkhcyzpnafbcgx.x;1
-data/spam1-test/lzfncvqvivcasapi.x;1
+data/spam1-test/lzfncvqvivcasapi.x;0
 data/spam1-test/xcyugbisyrcibwcb.x;0
 data/spam1-test/vpyduwwgrlzsyewm.x;0
 data/spam1-test/omobtvkavexobpaq.x;0
@@ -6760,7 +6760,7 @@ data/spam1-test/laebczyouvwlzlti.x;1
 data/spam1-test/auehfinnnuezhvjr.x;1
 data/spam1-test/ppjtedyawkcrvvtt.x;0
 data/spam1-test/ptrcdytpeoifdvpe.x;0
-data/spam1-test/nfeupjdegwkabysu.x;1
+data/spam1-test/nfeupjdegwkabysu.x;0
 data/spam1-test/mtjphgftpvtfpiur.x;1
 data/spam1-test/rnpwwzzhextrlilo.x;1
 data/spam1-test/uvwtkemgeliowxue.x;1
@@ -7065,7 +7065,7 @@ data/spam1-test/whxyndzzelpobggo.x;0
 data/spam1-test/brhunbukxnopgzyw.x;0
 data/spam1-test/kwmdsexypakxpxae.x;0
 data/spam1-test/ygpwnpicvobdnsmt.x;1
-data/spam1-test/olubtawzvukqckki.x;0
+data/spam1-test/olubtawzvukqckki.x;1
 data/spam1-test/dfzgdgdatotnrfgo.x;0
 data/spam1-test/dsqhpihgbjzcwolj.x;0
 data/spam1-test/heouuahqruklghfz.x;0
@@ -7266,7 +7266,7 @@ data/spam1-test/qkzynyedgdvntksy.x;1
 data/spam1-test/hybrbhamtntzvrql.x;1
 data/spam1-test/npiicykikcfkmwdx.x;0
 data/spam1-test/lbzoxmyimxiaquju.x;0
-data/spam1-test/aonyuzxyfndfovnk.x;1
+data/spam1-test/aonyuzxyfndfovnk.x;0
 data/spam1-test/fhhcqcavkhrwrdrs.x;0
 data/spam1-test/zdbcggbjlttbcggs.x;1
 data/spam1-test/wgrpiphtyalgnstx.x;1
@@ -7289,7 +7289,7 @@ data/spam1-test/ivqcehgjymrxgjdu.x;1
 data/spam1-test/elcemymjbabcghft.x;1
 data/spam1-test/tuoribpwobbgokau.x;1
 data/spam1-test/jjwgkhyosqsnoxhy.x;1
-data/spam1-test/yejnqrnckfaasshe.x;1
+data/spam1-test/yejnqrnckfaasshe.x;0
 data/spam1-test/lgvcrbbgaysiqkcy.x;0
 data/spam1-test/sdksajxcuzrubmrw.x;1
 data/spam1-test/kssvgujkakejyafj.x;1
@@ -7505,7 +7505,7 @@ data/spam1-test/ibdmqeyyefdsloli.x;0
 data/spam1-test/fbkwrbibepcthvpk.x;1
 data/spam1-test/jmwbdxzdcvvzrits.x;1
 data/spam1-test/hzysdsatobdnarnj.x;0
-data/spam1-test/ebygvfxjdqtnmxnk.x;0
+data/spam1-test/ebygvfxjdqtnmxnk.x;1
 data/spam1-test/zxwaxjvztygigdad.x;1
 data/spam1-test/rwgvqlcqpmixtddo.x;1
 data/spam1-test/zuaffdahupjathlp.x;1
@@ -7851,11 +7851,11 @@ data/spam1-test/npyoahoremndawck.x;1
 data/spam1-test/chgayfisncnsjaxk.x;0
 data/spam1-test/mvyyzorfsiimeuwo.x;0
 data/spam1-test/jjxzkgscqgbfxbse.x;0
-data/spam1-test/xjerwwvyjdtsdlbb.x;1
+data/spam1-test/xjerwwvyjdtsdlbb.x;0
 data/spam1-test/pntpyapyazllygeu.x;1
 data/spam1-test/kuwhtjpelolvxjvu.x;1
 data/spam1-test/blqxqgcivtcjuban.x;1
-data/spam1-test/iqzweiiknccwzozw.x;1
+data/spam1-test/iqzweiiknccwzozw.x;0
 data/spam1-test/uslhmaqaofgksvyd.x;1
 data/spam1-test/qlaatqdgyhqvvfeg.x;1
 data/spam1-test/zpypytqsskvvpzyz.x;0
@@ -8004,7 +8004,7 @@ data/spam1-test/disntigdwgbvaupk.x;1
 data/spam1-test/wmmetlvedbehbzmt.x;0
 data/spam1-test/mbukeeewfwywkuwb.x;1
 data/spam1-test/iqajehrnfwyawqmy.x;0
-data/spam1-test/fwhqsooosrwdzmqc.x;1
+data/spam1-test/fwhqsooosrwdzmqc.x;0
 data/spam1-test/fnufnqabohdlkrql.x;0
 data/spam1-test/jzildszhrhxuvpno.x;1
 data/spam1-test/isnnewmpndxgegwf.x;0
@@ -8087,7 +8087,7 @@ data/spam1-test/amsinysnwuquehqr.x;0
 data/spam1-test/cbhqwvpbsiaclnho.x;0
 data/spam1-test/hdxmenorxqtdhjst.x;1
 data/spam1-test/twmfcwyfrnyexiik.x;1
-data/spam1-test/pkbtadvpushzlieg.x;1
+data/spam1-test/pkbtadvpushzlieg.x;0
 data/spam1-test/nhdqdftskevexyqo.x;1
 data/spam1-test/jopzrmqooxopnjou.x;1
 data/spam1-test/fqhxqrglfkoduxfg.x;0
@@ -8540,7 +8540,7 @@ data/spam1-test/arjsghuqnlodroyp.x;0
 data/spam1-test/ugyedrwodhkwojvi.x;1
 data/spam1-test/qwuizksqyhthxmhk.x;1
 data/spam1-test/luewhvviimaqjqgn.x;1
-data/spam1-test/jpcngzqwcaifuxcv.x;0
+data/spam1-test/jpcngzqwcaifuxcv.x;1
 data/spam1-test/inojmkybiricuzmg.x;1
 data/spam1-test/fklahtqybkeonoko.x;1
 data/spam1-test/kvsnwkfxocqzneoe.x;1
@@ -8895,7 +8895,7 @@ data/spam1-test/diuggkgyydyjcget.x;1
 data/spam1-test/ncphkuslqwlysaph.x;1
 data/spam1-test/luclxdhquantyyas.x;1
 data/spam1-test/apwatrkuplfqrmvf.x;0
-data/spam1-test/gwbiswcuipgdkujq.x;1
+data/spam1-test/gwbiswcuipgdkujq.x;0
 data/spam1-test/eclqwiihmjnnvlbd.x;1
 data/spam1-test/cuvsknbgoxgskbwj.x;0
 data/spam1-test/amidqwhhfqaidaff.x;1
@@ -8961,7 +8961,7 @@ data/spam1-test/zuqoqlhxzfbeqzss.x;1
 data/spam1-test/xmifdjmlztvuphnw.x;0
 data/spam1-test/kpzwsbbtbmtitkom.x;1
 data/spam1-test/pxmlxtragbheukvz.x;0
-data/spam1-test/jifvtgaekpzitldk.x;1
+data/spam1-test/jifvtgaekpzitldk.x;0
 data/spam1-test/yrgyiuawkkkkoxjj.x;0
 data/spam1-test/sxyjkgptfmowmljt.x;0
 data/spam1-test/lkytbqzcpaciwwdn.x;0
@@ -9035,7 +9035,7 @@ data/spam1-test/gsenwgfxnzmwiigp.x;0
 data/spam1-test/kzmwpehzewxrqkkb.x;1
 data/spam1-test/wylqfxnvfemkuaqr.x;1
 data/spam1-test/bcmytwefzjntbyou.x;1
-data/spam1-test/lcjaffhuionmedtq.x;1
+data/spam1-test/lcjaffhuionmedtq.x;0
 data/spam1-test/fogntbesivxoanjd.x;1
 data/spam1-test/qyyefljrgryfuauc.x;0
 data/spam1-test/ahlvlfylkxhvvjeq.x;1
@@ -9541,7 +9541,7 @@ data/spam1-test/oauljrukuilhkuxv.x;0
 data/spam1-test/rmrcbjaxagrhdwbh.x;1
 data/spam1-test/awepvqycfycweqkm.x;1
 data/spam1-test/nkxxuntbcdsbdvye.x;1
-data/spam1-test/wsflpinoeesjpqaf.x;1
+data/spam1-test/wsflpinoeesjpqaf.x;0
 data/spam1-test/vnvjarztczcjonyb.x;1
 data/spam1-test/uflcyywcejfcgcub.x;1
 data/spam1-test/wziksoyodbcngjmh.x;0
@@ -9720,7 +9720,7 @@ data/spam1-test/xluezihvnfurjdyv.x;1
 data/spam1-test/ljsrveaqahvxujoi.x;0
 data/spam1-test/efalzjtcuvdjnddq.x;1
 data/spam1-test/muogknwaaprowvfi.x;0
-data/spam1-test/gawyvngpecphjras.x;0
+data/spam1-test/gawyvngpecphjras.x;1
 data/spam1-test/aciflciwezjbwjih.x;1
 data/spam1-test/xwhwxxgdkuracuep.x;0
 data/spam1-test/rlmuabuhqpfgqhye.x;0
@@ -9748,12 +9748,12 @@ data/spam1-test/qmivtbcrphwkknuy.x;1
 data/spam1-test/onqnsipkcwjkkouz.x;1
 data/spam1-test/vfmfgesfmwdndpsb.x;1
 data/spam1-test/ufkmogjgshcxxsnu.x;1
-data/spam1-test/uyrcemtqdoyttekz.x;1
+data/spam1-test/uyrcemtqdoyttekz.x;0
 data/spam1-test/vbszjxxucavhrbjw.x;0
 data/spam1-test/juskgvepabkruiga.x;1
 data/spam1-test/qntdozerdpggatym.x;1
 data/spam1-test/qlnsmzctevraoydv.x;1
-data/spam1-test/tqvxjxpykscgelgv.x;0
+data/spam1-test/tqvxjxpykscgelgv.x;1
 data/spam1-test/cwzvrazywlbsvlen.x;0
 data/spam1-test/xpjzofaxaxivunyr.x;1
 data/spam1-test/dnblhhiwfjdfrdlb.x;0
@@ -9783,7 +9783,7 @@ data/spam1-test/qppfakfcjcmjvxgl.x;0
 data/spam1-test/kpwsjfclksczqzac.x;0
 data/spam1-test/zrmpnudetrlrpfhv.x;1
 data/spam1-test/uvmwabeohyvenqjl.x;1
-data/spam1-test/qcdadqynkdqtgkfs.x;1
+data/spam1-test/qcdadqynkdqtgkfs.x;0
 data/spam1-test/afiipbqrnvauzuji.x;0
 data/spam1-test/bcdorjupzwnorajg.x;0
 data/spam1-test/gdttzuokaqmgzlsn.x;1
@@ -9873,7 +9873,7 @@ data/spam1-test/szvphgpyqvmujbkr.x;0
 data/spam1-test/lmqlurjonivfxooo.x;1
 data/spam1-test/dfytnpkctizsqnpb.x;0
 data/spam1-test/cqsjyalvzvleomub.x;0
-data/spam1-test/dnyqafzyxkblmate.x;1
+data/spam1-test/dnyqafzyxkblmate.x;0
 data/spam1-test/mqhasxhfsfsazodx.x;0
 data/spam1-test/yuyvuuyysvaixxvk.x;0
 data/spam1-test/haehszlrbgvnwmpf.x;0
@@ -10204,7 +10204,7 @@ data/spam1-test/xskybhisicujefkz.x;0
 data/spam1-test/gslofeupyicmhkug.x;1
 data/spam1-test/uenoeprtjyivjpxl.x;1
 data/spam1-test/zhxomjxvmqukepuc.x;1
-data/spam1-test/bdqnzzxjbntwuczq.x;1
+data/spam1-test/bdqnzzxjbntwuczq.x;0
 data/spam1-test/iudynrcajtfffydp.x;1
 data/spam1-test/xmpqarjfmxwpxyxs.x;0
 data/spam1-test/ubhagzuakveoblpf.x;1
@@ -10240,7 +10240,7 @@ data/spam1-test/dwnhthupmyewexoj.x;1
 data/spam1-test/cmdbpzpumrkzkgiu.x;0
 data/spam1-test/cehbdrdhpmlmsxcu.x;0
 data/spam1-test/vlctuefibkyymlcb.x;0
-data/spam1-test/wxllfdtmvmdbjtde.x;1
+data/spam1-test/wxllfdtmvmdbjtde.x;0
 data/spam1-test/vorcnxqutzlyyzkp.x;0
 data/spam1-test/xrdmhieoeamkdawi.x;1
 data/spam1-test/cvylspcaylufwvkd.x;0
@@ -10319,7 +10319,7 @@ data/spam1-test/apgvpkaqxltbhhaz.x;0
 data/spam1-test/hqkfgnoqskfwurbe.x;1
 data/spam1-test/jtxxyjhzgwuknlhb.x;0
 data/spam1-test/kdiyjnsirceziawu.x;1
-data/spam1-test/vmvcmxakyihemqoe.x;1
+data/spam1-test/vmvcmxakyihemqoe.x;0
 data/spam1-test/vaqwxxcsyucddhpf.x;1
 data/spam1-test/mutfkzsyasnwohyj.x;1
 data/spam1-test/znfaijxwvqckyakv.x;0
@@ -11000,7 +11000,7 @@ data/spam1-test/encjllplirbhbves.x;1
 data/spam1-test/jdwppytwkxogokds.x;1
 data/spam1-test/ymlpxgavhhkmlwca.x;0
 data/spam1-test/ifkkadabzwzcimbc.x;0
-data/spam1-test/oanbnvsoezuzfyvr.x;1
+data/spam1-test/oanbnvsoezuzfyvr.x;0
 data/spam1-test/yookalckiolmcify.x;0
 data/spam1-test/myzqnyjepeitedbw.x;1
 data/spam1-test/phcrskbzvhnxaxwa.x;1
@@ -11031,7 +11031,7 @@ data/spam1-test/vkrisboabrcvbugk.x;0
 data/spam1-test/mhjfhjgnetcozfeq.x;1
 data/spam1-test/picvzgbbbvqhdexo.x;0
 data/spam1-test/povekkjzobymhmgl.x;0
-data/spam1-test/roablvpjwdpavvyq.x;1
+data/spam1-test/roablvpjwdpavvyq.x;0
 data/spam1-test/hznnouwbqklqztuk.x;1
 data/spam1-test/molkqwbnuwftbmfj.x;1
 data/spam1-test/xwviuqigohbqjqvk.x;0
@@ -11209,7 +11209,7 @@ data/spam1-test/baaprpgcxsyjrypq.x;1
 data/spam1-test/smpnjclwnqahdjvg.x;1
 data/spam1-test/olhncyeuqyqvlcvd.x;0
 data/spam1-test/pqbthokkvtkmxrpn.x;0
-data/spam1-test/qrlctkqqtkntplfz.x;1
+data/spam1-test/qrlctkqqtkntplfz.x;0
 data/spam1-test/afspxkfuevcxihtk.x;1
 data/spam1-test/rxzsacfogohskumc.x;1
 data/spam1-test/jfwcjtrqxzfucnve.x;1
@@ -11248,7 +11248,7 @@ data/spam1-test/xfcxkcsnzpvbyxkg.x;0
 data/spam1-test/kaamkfxbepucbdqy.x;0
 data/spam1-test/ocowzamkadpgptll.x;0
 data/spam1-test/pagokjlftlwfnmbn.x;1
-data/spam1-test/nmwuoqithtejxlrf.x;1
+data/spam1-test/nmwuoqithtejxlrf.x;0
 data/spam1-test/kousjnkhionzswul.x;0
 data/spam1-test/lyblwbbhdpzodbww.x;0
 data/spam1-test/czolpwufkozljxlj.x;1
@@ -11464,7 +11464,7 @@ data/spam1-test/wjbtnbzxczcxqtay.x;0
 data/spam1-test/jcuwvcdbqjdkuqoy.x;1
 data/spam1-test/orrayxetzmegfrej.x;1
 data/spam1-test/azcxavsaqwzinzca.x;0
-data/spam1-test/hdenrpngbkuhhxzi.x;0
+data/spam1-test/hdenrpngbkuhhxzi.x;1
 data/spam1-test/zjkggjfgzwiljaga.x;1
 data/spam1-test/asmkucqdrmgqvdsl.x;1
 data/spam1-test/wezsrzskljclbhim.x;1
@@ -11477,7 +11477,7 @@ data/spam1-test/vgquifitlkbjhghz.x;1
 data/spam1-test/bsobqhpqnpswjnpe.x;1
 data/spam1-test/yfwbhkrwzapubmzp.x;0
 data/spam1-test/kjfmzvuxblnjynpq.x;1
-data/spam1-test/hsbanvvfeitufedq.x;1
+data/spam1-test/hsbanvvfeitufedq.x;0
 data/spam1-test/cuqtduinmyipiojn.x;1
 data/spam1-test/oxliuyfyxuooiidq.x;1
 data/spam1-test/mcrrkhifxpdmemdk.x;1
@@ -11624,7 +11624,7 @@ data/spam1-test/cbllgcsgmbcpjwie.x;1
 data/spam1-test/tmfelghwdrudrndo.x;1
 data/spam1-test/xoqwmfkeugzzxyxj.x;0
 data/spam1-test/eodlfdebagklpplr.x;1
-data/spam1-test/dvrvtjohvzwmplgz.x;1
+data/spam1-test/dvrvtjohvzwmplgz.x;0
 data/spam1-test/nzccbnlruuenlhvg.x;1
 data/spam1-test/dawrdaurhsiouktv.x;0
 data/spam1-test/ibrzvkwmfdmjwwaz.x;0
@@ -11921,7 +11921,7 @@ data/spam1-test/hpqfdupgupielaef.x;1
 data/spam1-test/oqrkjvjuepxkplkr.x;1
 data/spam1-test/qswhtmocrzrwgpjs.x;1
 data/spam1-test/cwfowsthftjsmfbi.x;1
-data/spam1-test/dwekzboorymcflah.x;1
+data/spam1-test/dwekzboorymcflah.x;0
 data/spam1-test/tzrozufeyemwgske.x;1
 data/spam1-test/rqzedkvmbqdwiubo.x;0
 data/spam1-test/ddgtcnjfokduutmf.x;0
@@ -12129,7 +12129,7 @@ data/spam1-test/ugvutrbyssrlnxyy.x;0
 data/spam1-test/ytywiixaqogxbfpp.x;1
 data/spam1-test/fgsygoagqlvxrplr.x;1
 data/spam1-test/suvshmywgywxdowh.x;0
-data/spam1-test/nchxlchhmicowbsq.x;1
+data/spam1-test/nchxlchhmicowbsq.x;0
 data/spam1-test/kdrmxvncdorjible.x;1
 data/spam1-test/funlcozmwqukiayw.x;0
 data/spam1-test/yljojdzcqykofphx.x;1
@@ -12273,7 +12273,7 @@ data/spam1-test/bxguduvyejxetpbt.x;1
 data/spam1-test/wdqmlollnehixijz.x;1
 data/spam1-test/ekilzemwjmquflla.x;0
 data/spam1-test/upzegqcsgkgtxgsm.x;1
-data/spam1-test/mzjqorhoqllldwds.x;1
+data/spam1-test/mzjqorhoqllldwds.x;0
 data/spam1-test/jmbcypiytnkgabul.x;0
 data/spam1-test/tmozoyidmuhaqafh.x;0
 data/spam1-test/sxiuqmatllcapsgs.x;0
@@ -12462,7 +12462,7 @@ data/spam1-test/qrmgkorptwczzxhn.x;1
 data/spam1-test/qcjucwsykhvglnxy.x;0
 data/spam1-test/htjvyemblltlwpuc.x;0
 data/spam1-test/mgqntvylqitskqoo.x;1
-data/spam1-test/ochxojywisyotzqp.x;1
+data/spam1-test/ochxojywisyotzqp.x;0
 data/spam1-test/yqfprnkmgsofhnpv.x;1
 data/spam1-test/siivfjvsqdlvyaur.x;1
 data/spam1-test/zyvuaazmoehptwii.x;0
@@ -12522,7 +12522,7 @@ data/spam1-test/vabzsfvdfinrmimb.x;1
 data/spam1-test/kgxvzixrezwbmdya.x;0
 data/spam1-test/tyatjglgkgjyyhvz.x;1
 data/spam1-test/blzvkaxlcmuslran.x;1
-data/spam1-test/gpmmjowfvcaozdzx.x;1
+data/spam1-test/gpmmjowfvcaozdzx.x;0
 data/spam1-test/pvlowaayioertghu.x;0
 data/spam1-test/rkszpyacdwivxoiu.x;0
 data/spam1-test/odbdcuqxcwvryisb.x;1
@@ -12578,7 +12578,7 @@ data/spam1-test/tjxsabtjijqwihyy.x;0
 data/spam1-test/veewewnrllivzvwi.x;1
 data/spam1-test/rtaenynvggrxfivi.x;0
 data/spam1-test/ilqtpsymlujaynno.x;0
-data/spam1-test/gfrrytjyykdnxbdm.x;1
+data/spam1-test/gfrrytjyykdnxbdm.x;0
 data/spam1-test/dcnlajpdfxysotol.x;1
 data/spam1-test/kyztorwwjbvokeag.x;0
 data/spam1-test/ddfumphyaeogjvnq.x;1
@@ -12593,7 +12593,7 @@ data/spam1-test/sxyxnlujrzedikjm.x;0
 data/spam1-test/oepxkzwfpsermsoc.x;1
 data/spam1-test/sqvaxvudkifgsejz.x;1
 data/spam1-test/qemkihtvkgojwcuj.x;1
-data/spam1-test/pjbibcbugqmgndmg.x;1
+data/spam1-test/pjbibcbugqmgndmg.x;0
 data/spam1-test/ywhbmubdvpzvrfgx.x;0
 data/spam1-test/ikrfrxullirbqsew.x;1
 data/spam1-test/sbtggdvoitgkwdsa.x;1
@@ -12641,7 +12641,7 @@ data/spam1-test/rexawfglycgteqec.x;1
 data/spam1-test/vxzymhkxnxdvlzjs.x;0
 data/spam1-test/vghjvwxjjeoajlro.x;0
 data/spam1-test/hhgybdrbvzggpzyd.x;0
-data/spam1-test/xkrndtjsaajwzjsn.x;1
+data/spam1-test/xkrndtjsaajwzjsn.x;0
 data/spam1-test/mpvecivfzyrxwkva.x;1
 data/spam1-test/hwubqcqgsgoqbpfr.x;1
 data/spam1-test/ocwyqflljydnhcrm.x;1
@@ -12674,7 +12674,7 @@ data/spam1-test/fsqvsosfoskaoppv.x;0
 data/spam1-test/hlfyopxypbgmfgek.x;1
 data/spam1-test/wibrgbovmzzinjeh.x;1
 data/spam1-test/vckvfjvdrescsvox.x;0
-data/spam1-test/ncsppnockdcbybtd.x;1
+data/spam1-test/ncsppnockdcbybtd.x;0
 data/spam1-test/nusihhzmuzglzsgo.x;1
 data/spam1-test/fmopqfywtzdhirhd.x;1
 data/spam1-test/ahmsjytvdzececyo.x;0
@@ -12815,7 +12815,7 @@ data/spam1-test/nnqnggkepuampcyy.x;1
 data/spam1-test/doiebkzimihlpvtp.x;1
 data/spam1-test/sjsxcjrvzkijmais.x;0
 data/spam1-test/gfivpuvizptmgjwp.x;0
-data/spam1-test/cptfdomfpzwbzprx.x;1
+data/spam1-test/cptfdomfpzwbzprx.x;0
 data/spam1-test/bkllcdmvupvwvizo.x;1
 data/spam1-test/whkshbisjsziahhh.x;0
 data/spam1-test/gpfrgihjzqzaolff.x;1
@@ -13492,7 +13492,7 @@ data/spam1-test/qweutyuvlwcofzjv.x;1
 data/spam1-test/walrfhwrtgsmohmo.x;1
 data/spam1-test/gyveawsqzlknoizl.x;1
 data/spam1-test/osfqnrshildhwhjo.x;1
-data/spam1-test/byepkgdfucyspfiy.x;1
+data/spam1-test/byepkgdfucyspfiy.x;0
 data/spam1-test/huqaneoboqbewdmi.x;1
 data/spam1-test/swphuzyqynzseemr.x;1
 data/spam1-test/drhbqczwyfajmljf.x;1
@@ -13640,7 +13640,7 @@ data/spam1-test/sxbltcrthdsyqpqc.x;0
 data/spam1-test/bveeohhfwzctghmo.x;1
 data/spam1-test/ftitguvgeifsheln.x;1
 data/spam1-test/bexpymenckjjemon.x;0
-data/spam1-test/ubqeumbvgcthkqyj.x;1
+data/spam1-test/ubqeumbvgcthkqyj.x;0
 data/spam1-test/wedcsatxzfhyljtg.x;0
 data/spam1-test/lkrnsgyygckqrklu.x;1
 data/spam1-test/jvjnfvebijudiqis.x;0
@@ -14167,7 +14167,7 @@ data/spam1-test/ruukriqbdqkzhzsc.x;0
 data/spam1-test/pdnvcklossvxsuge.x;0
 data/spam1-test/klvrpdkxxzjbrmqa.x;0
 data/spam1-test/vuumspdbumnnflzw.x;1
-data/spam1-test/ilkbzwciircdaxdc.x;1
+data/spam1-test/ilkbzwciircdaxdc.x;0
 data/spam1-test/eitncleqekukxnui.x;0
 data/spam1-test/ydujirufyrbtcmzd.x;0
 data/spam1-test/upczemsoqdmuveku.x;0
@@ -14304,7 +14304,7 @@ data/spam1-test/grfznxxhuotkyrmd.x;1
 data/spam1-test/nvukbvctyqjyyskd.x;0
 data/spam1-test/izyfhyilrchoeodn.x;1
 data/spam1-test/wydrdfqvcqiifjno.x;0
-data/spam1-test/ztbsodrgpmkhqjrz.x;1
+data/spam1-test/ztbsodrgpmkhqjrz.x;0
 data/spam1-test/tafjdrawcfekqvmd.x;1
 data/spam1-test/eucthzcrvgyzzofi.x;0
 data/spam1-test/nvfxdksezlscjhfi.x;1
@@ -14326,7 +14326,7 @@ data/spam1-test/ledtufakhhoopivk.x;1
 data/spam1-test/csjiplrakxcvdfpu.x;1
 data/spam1-test/zgzqkyqcbmekipfz.x;0
 data/spam1-test/irdclzsjzffjvntv.x;1
-data/spam1-test/xiiutzpsdrdqtkbq.x;1
+data/spam1-test/xiiutzpsdrdqtkbq.x;0
 data/spam1-test/gnratcphjufakqit.x;1
 data/spam1-test/ofczvktexnubamjt.x;1
 data/spam1-test/eznziwrrtgpqsifk.x;1
@@ -14574,7 +14574,7 @@ data/spam1-test/ggtgpmgrbmldobih.x;0
 data/spam1-test/qeegannspopzpuns.x;0
 data/spam1-test/hfiljuvorgxfmaly.x;1
 data/spam1-test/pifgallebmgcvufy.x;1
-data/spam1-test/uuctoohklwytppoj.x;1
+data/spam1-test/uuctoohklwytppoj.x;0
 data/spam1-test/prremnbfhxcwotlt.x;0
 data/spam1-test/ifkrkfrhhwcioyrs.x;1
 data/spam1-test/ulyolgipumjjepry.x;0
@@ -14699,7 +14699,7 @@ data/spam1-test/tsgvztfersndffno.x;1
 data/spam1-test/degzxkbvhwyqilqz.x;0
 data/spam1-test/ihwpmvglsxdkhmjc.x;0
 data/spam1-test/xsgrcwmlssqsnbuo.x;1
-data/spam1-test/njxqeieitpiwaxjm.x;1
+data/spam1-test/njxqeieitpiwaxjm.x;0
 data/spam1-test/sptdhsttipcvibtm.x;0
 data/spam1-test/jroosiwhobyztckl.x;0
 data/spam1-test/crluivjvbnkdbtgx.x;0
@@ -14739,7 +14739,7 @@ data/spam1-test/uldlcxsoyscsreox.x;1
 data/spam1-test/gtkgfjrpvlzkqwio.x;1
 data/spam1-test/dzwgjhpluuaxwvfs.x;1
 data/spam1-test/lxqiigcspqfkilpt.x;0
-data/spam1-test/bdrvkmufvqfllgxa.x;0
+data/spam1-test/bdrvkmufvqfllgxa.x;1
 data/spam1-test/wambxivthvunsuqp.x;0
 data/spam1-test/ifpmwmiivcufkika.x;1
 data/spam1-test/lwjscxjsutreiwwz.x;0
