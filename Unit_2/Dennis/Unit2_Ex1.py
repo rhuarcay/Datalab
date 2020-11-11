@@ -6,6 +6,7 @@ Created on Mon Nov  9 14:35:43 2020
 """
 FILE = '../Data/Data_Ex1.zip'
 
+import numpy as np
 import zipfile as zipp
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
@@ -115,6 +116,8 @@ def feature_pictures(filelist, count = False):
         featurelist.append(pic_exists)
     return featurelist
 
+#Erwartet als Input eine Liste an Listen von Dateien aus den Docx-Dateien
+#Rückgabe ist eine Liste, ob die ursprüngliche Datei eine nichtlesbare Zipfile war oder nicht
 def feature_badzipfile(filelist):
     featurelist = []
     for l in filelist:
@@ -122,6 +125,18 @@ def feature_badzipfile(filelist):
             featurelist.append(1)
         else:
             featurelist.append(0)
+    return featurelist
+
+#Erwartet als Input eine Liste an Listen von Dateien aus den Docx-Dateien
+#Rückgabe ist eine Liste, ob in den Dateien eine ole-Datei vorhanden ist. Hoffentlich.
+def feature_ole(filelist):
+    featurelist = []
+    for l in filelist:
+        ole = 0
+        for entry in l:
+            if 'ole' in entry.lower():
+                ole = 1
+        featurelist.append(ole)
     return featurelist
 
 #-------------------------------------------------
@@ -135,6 +150,7 @@ vbaList = feature_vbaProject(text)
 picList = feature_pictures(text)
 picCount = feature_pictures(text, count=True)
 badzip = feature_badzipfile(text)
+olelist = feature_ole(text)
 #textlist = get_filenames(text)
 #file_dict = count_filenames(text)
 
