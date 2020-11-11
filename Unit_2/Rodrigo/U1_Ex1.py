@@ -12,7 +12,15 @@ def extrakt_Names(file):
     zf = zipp.ZipFile(file)
     name = zf.namelist()
     name = name[:-1]
-    return name
+    labels = extrakt_Labels(name)
+    return name, labels
+
+def extrakt_Labels(nameList):
+    labels_i=[]
+    for name in nameList:
+        tok = name.split('.')
+        labels_i.append(int(tok[1]))
+    return labels_i
 
 def extrakt_Tree(nameList):
     features_tree=[]
@@ -30,8 +38,9 @@ def extrakt_Tree(nameList):
 #-------------------------------------------------
 namelist = []
 text = []
+labels =[]
 
-namelist = extrakt_Names(FILE)
+namelist, labels = extrakt_Names(FILE)
 text = extrakt_Tree(namelist)
 
 '''In [39]: def extrakt_Tree(nameList):
