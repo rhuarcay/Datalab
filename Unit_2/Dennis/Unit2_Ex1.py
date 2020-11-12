@@ -8,7 +8,44 @@ FILE = '../Data/Data_Ex1.zip'
 
 import numpy as np
 import zipfile as zipp
+import sklearn.svm as svm
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import balanced_accuracy_score
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import GridSearchCV
+
+#Gib ne file rein, die features werden extrahiert und als features und labels
+#wieder ausgegeben
+#Eventuell könnt man noch die Dateinamen dabei zurückgeben, für später... mal schauen.
+def prepare_data(file):
+    namelist = []
+    text = []
+    
+    namelist, labellist = extrakt_Names(file)
+    text = extrakt_Tree(namelist)
+    
+    print("Features werden extrahiert, bitte warten...")
+    vbaList = feature_vbaProject(text)
+    picList = feature_pictures(text)
+    picCount = feature_pictures(text, count=True)
+    badzip = feature_badzipfile(text)
+    olelist = feature_ole(text)
+    print("Features extrahiert!")
+    
+    features = np.zeros((len(text), 5))
+    
+    for i in range(0, len(text)):
+        features[i,0]=vbaList[i]
+        features[i,1]=picList[i]
+        features[i,2]=picCount[i]
+        features[i,3]=badzip[i]
+        features[i,4]=olelist[i]
+    
+    labels = np.array(labellist)
+    
+    return features, labels
+
 
 #Gibt die Namen der Dateien und die Label dazu zurück
 def extrakt_Names(file):
@@ -139,18 +176,57 @@ def feature_ole(filelist):
         featurelist.append(ole)
     return featurelist
 
+
+def train_classifier(features, labels, pipe=False):
+    
+    X_train, X_test, Y_train, Y_test = train_test_split(features, labels, random_state=0)
+
+    if pipe: 
+        pipeline = Pipeline([
+            ("tffidf", TfidfTransformer()),
+            ("svm", svm.SVC())
+        ])
+        classifier = GridSearchCV(pipeline, param_grid = {
+            "svm__C": [0.01, 0.1, 1, 10, 100, 1000],
+            "svm__gamma": [0.01, 0.1, 1, 10, 100, 1000],
+            "svm__kernel": ['rbf']
+        })
+    else:
+        classifier = svm.SVC(C=1, kernel='rbf', gamma=1)
+        
+    print("Trainiere classifier")
+    classifier.fit(X_train, Y_train)
+    
+    print('Classifier trainiert!')
+    
+    Y_pred = classifier.predict(X_test)
+    print('Score:')
+    print(balanced_accuracy_score(Y_test, Y_pred))
+    if pipe:
+        print("Best parameters:")
+        print(classifier.best_params_)
+    
+    return classifier
+
+
 #-------------------------------------------------
-namelist = []
-text = []
 
-namelist, labellist = extrakt_Names(FILE)
-text = extrakt_Tree(namelist)
+###
+# namelist = []
+# text = []
 
-vbaList = feature_vbaProject(text)
-picList = feature_pictures(text)
-picCount = feature_pictures(text, count=True)
-badzip = feature_badzipfile(text)
-olelist = feature_ole(text)
+# namelist, labellist = extrakt_Names(FILE)
+# text = extrakt_Tree(namelist)
+
+# vbaList = feature_vbaProject(text)
+# picList = feature_pictures(text)
+# picCount = feature_pictures(text, count=True)
+# badzip = feature_badzipfile(text)
+# olelist = feature_ole(text)
+###
+X, Y = prepare_data(FILE)
+c = train_classifier(X, Y, True)
+
 #textlist = get_filenames(text)
 #file_dict = count_filenames(text)
 
