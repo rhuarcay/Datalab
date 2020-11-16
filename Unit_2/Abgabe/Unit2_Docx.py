@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Nov  9 14:35:43 2020
 
-@author: guine
-"""
 FILE = '../Data/Data_Ex1'
 TESTFILE = '../Data/Testdata_Ex1'
 
@@ -34,8 +30,7 @@ def prepare_trainingsdata(file):
     
     return features, labels
 
-
-#Gibt die Namen der Dateien und die Label dazu zurück
+#Gibt die Namen der Dateienzurück
 def extract_Names(file):
     file = file + '.zip'
     zf = zipp.ZipFile(file)
@@ -51,6 +46,8 @@ def extract_Labels(nameList):
         labels_i.append(int(tok[1]))
     return labels_i
 
+#Extrahiert die relevanten features aus einer Liste an Listen von Inhalten der Docx-Dateien
+#Und gibt die halt zurück. So.
 def extract_features(data):
     print("Features werden extrahiert, bitte warten...")
     vbaList = feature_vbaProject(data)
@@ -89,7 +86,7 @@ def extract_Tree(nameList, path):
             features_tree.append(tree)
             continue
         except:
-            print('Bad: ' + path + '/' + names)
+            #print('Bad: ' + path + '/' + names)
             tree.append("BadZipfile")
             features_tree.append(tree)
             continue
@@ -189,6 +186,7 @@ def feature_ole(filelist):
     return featurelist
 
 
+#Training vom Classifier, der am Ende zurückgegeben wird
 def train_classifier(features, labels, pipe=False, all_data=False):
     
     if all_data:
@@ -226,12 +224,11 @@ def train_classifier(features, labels, pipe=False, all_data=False):
     return classifier
 
 
-
+#Klassifiziert die Testdaten
 def classify_data(file, modelfile):
     names = extract_Names(file)
     text = extract_Tree(names, file)
     X = extract_features(text)
-    #Features normalisieren!!!
     try:
         classifier = load_model(modelfile)
     except:
@@ -242,18 +239,15 @@ def classify_data(file, modelfile):
         print('Starte Klassifizierung')
         Y = classifier.predict(X)
         print('Klassifizierung abgeschlossen')
-        #Ev Y und names zusammenschmeißen als ein Array.
-        #Das zurückgeben, mit true, weil hat funktioniert
-        Z = []
         return (names, Y, True)
     except:
         print('Klassifierung fehlgeschlagen. Möglicherweise wurde ein falsches Modell genutzt?')
         return (names, Y, False)
 
 
-
+#Schreibt die Klassifizierung in eine Datei
 def write_to_file(names, label):
-    f = open("docx-test.predict", "wt")
+    f = open("output.csv", "wt")
     
     for name, pred in zip(names, label):
         f.write("%s;%d" % (name, pred) + '\n')
@@ -281,32 +275,20 @@ def load_model(filepath):
 #--------------------------------------------------------------------------------
 
 
+def train():
+    X, Y = prepare_trainingsdata(FILE)
+    c = train_classifier(X, Y, pipe=False, all_data=True)
+    save_model(c, 'classifier_docx')
+    
+def classify():
+    x = classify_data(TESTFILE, 'classifier_docx.joblib')
+    if (x[2]):
+        write_to_file(x[0], x[1])  
 #-------------------------------------------------
 
-###
-# namelist = []
-# text = []
+train()
 
-# namelist, labellist = extrakt_Names(FILE)
-# text = extrakt_Tree(namelist)
-
-# vbaList = feature_vbaProject(text)
-# picList = feature_pictures(text)
-# picCount = feature_pictures(text, count=True)
-# badzip = feature_badzipfile(text)
-# olelist = feature_ole(text)
-###
-
-
-#Das hier ist so der Teil zum Trainieren
-#X, Y = prepare_trainingsdata(FILE)
-#c = train_classifier(X, Y, pipe=False, all_data=True)
-#save_model(c, 'classifier_docx')
-
-x = classify_data(TESTFILE, 'classifier_docx.joblib')
-if (x[2]):
-    write_to_file(x[0], x[1])
-#Hier der Teil zum Klassifizieren
+classify()
 
 
 
