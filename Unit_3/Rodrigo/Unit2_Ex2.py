@@ -10,9 +10,10 @@ from androguard import session
 import os
 import numpy as np
 import zipfile as zipp
+import pickle
 
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
-FILE = 'Data_Ex2'
+FILE = '../Data/Data_Ex2'
 TESTFILE = 'Testdata_Ex1'
 
 
@@ -33,27 +34,21 @@ def extract_Labels(nameList):
         labels_i.append(int(tok[1]))
     return labels_i
 
-def write_Out_file(out_filename, out_text):
-    """ Writes a Text/List in a Outfile in the current directory
+def write_Out_file(out_filename, out_list):
+    """ Writes a List in a Outfile in the current directory
         used to store for Exam. the Permissions"""    
     
-    with open(out_filename, "wt") as out_file:
-        out_file.write(out_text)
+    with open(out_filename, "wb") as out_file:
+        pickle.dump(out_list, out_file)
 
 def write_In_file(in_file):
-    """Writes a Text/List to an outfile in the current directory"""
-    with open(in_file, "r") as in_file:    
-        text = in_file.read()
+    """Writes a List to an outfile in the current directory"""
+    with open(in_file, "rb") as in_file:    
+        in_list = pickle.load(in_file)
     
-    return text
+    return in_list
 
-
-def main():
-    
-    name_list = extract_Names(FILE)
-    labels_list = extract_Labels(name_list)
-    print(len(name_list))
-    print(len(labels_list))    
+def extract_Permissions(name_list):
     permissions = []
     
     print("Permissions werden extrahiert, bitte warten...")
@@ -69,7 +64,9 @@ def main():
         
             permissions.append(a.get_permissions())
             sess.reset()
-        except:    
+        except:
+            permissions.append("Permissions couldnt be extracted")
+            print("error in Permissions")
             sess.reset()
         
         i+=1
@@ -79,7 +76,17 @@ def main():
     print("Permissions already processed")
     print("Saving Permissions...")
     
-    write_Out_file("Permissions.txt", permissions)
+    write_Out_file("Permissions.txt", permissions)    
+    
+    return permissions
+    
+def main():
+    
+    name_list = extract_Names(FILE)
+    labels_list = extract_Labels(name_list)
+    #permissions = extract_Permissions(name_list)
+    
+    permissions = write_In_file("../Data/Permissions.txt")
 
     return 0
 
