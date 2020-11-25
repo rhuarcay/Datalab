@@ -6,12 +6,14 @@ Created on Wed Nov 25 11:51:39 2020
 """
 import zipfile as zipp
 import os
+import re
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score
 from sklearn.cluster import AffinityPropagation
 from sklearn.cluster import MeanShift
+import numpy as np
 
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE = '../Data/Data_Ex1'
@@ -39,21 +41,31 @@ def extract_text_php(file):
     with zipp.ZipFile(file) as zfile:
         docs = list(map(lambda name: zfile.read(name).decode("latin1"), zfile.namelist()[:-1]))
     
-    return docs
+
+    asci_docs = []
+    for doc in docs:
+        s = ""
+        #s = doc.encode('ascii', errors='ignore').decode()
+        s = re.sub(r'[^\x41-\x7f]',r' ',doc)
+        asci_docs.append(s)
+
+    return asci_docs
 
 def clustering_kMeans(text_list, label_list):
     """Clustering the Text with CV with kMeans"""
-    #for n in range(3,7):
+    label_list = np.array(label_list)
     print('Data is been clustered... ')
-    pipeline = Pipeline([
-        ("cv", CountVectorizer(strip_accents='ascii',min_df=0.25)),
-        ("tffidf", TfidfTransformer()),
-        ("cluster", MeanShift() )
-        ])
-    
-    labels_predicted = pipeline.fit_predict(text_list)
-    score = adjusted_rand_score(labels_predicted, label_list)
-    print("Score for " + str(2) + " Clusters: " + str(score))
+    for n in range(3,7):
+            
+        pipeline = Pipeline([
+            ("cv", CountVectorizer(min_df=0.20, ngram_range=(1,1))),
+            ("tffidf", TfidfTransformer()),
+            ("cluster", KMeans(n_clusters=n) )
+            ])
+        
+        labels_predicted = pipeline.fit_predict(text_list)
+        score = adjusted_rand_score(labels_predicted, label_list)
+        print("Score for " + str(n) + " Clusters: " + str(score))
 
 def main():
     
