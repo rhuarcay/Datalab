@@ -11,6 +11,10 @@ import os
 import numpy as np
 import zipfile as zipp
 import pickle
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.cluster import KMeans
+from sklearn.metrics import adjusted_rand_score
 
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE = '../Data/Data_Ex2'
@@ -48,7 +52,20 @@ def write_In_file(in_file):
     
     return in_list
 
+def listlist_to_stringlist(l):
+    """ Verarbeitet die Liste von Listen von Dateien zu einer Liste an Strings
+        Die Dateinamen werden dabei einfach nacheinander in einen String gespeichert
+        Und in eine Liste geworfen"""
+    stringlist = []
+    for entry in l:
+        string = ''
+        for list_entry in entry:
+            string = string + ' ' + list_entry
+        stringlist.append(string)
+    return stringlist
+
 def extract_Permissions(name_list):
+    """Function takes the permissions from a Apk File and stores it in a list"""
     permissions = []
     
     print("Permissions werden extrahiert, bitte warten...")
@@ -76,9 +93,26 @@ def extract_Permissions(name_list):
     print("Permissions already processed")
     print("Saving Permissions...")
     
+    permissions = listlist_to_stringlist(permissions)
     write_Out_file("Permissions.txt", permissions)    
     
     return permissions
+
+def clustering_kMeans(permissions_list, labels_list):
+    """ This Functions gets a list of Permissions and use the Kmeans Cluster with the
+        the elbow method"""
+    for n in range(1,22):
+        pipeline = Pipeline([
+            ("cv", CountVectorizer()),
+            ("tffidf", TfidfTransformer()),
+            ("cluster", KMeans(n_clusters = n) )
+            ])
+        
+        labels_predicted = pipeline.fit_predict(permissions_list)
+        score = adjusted_rand_score(labels_predicted, labels_list)
+        print("Score for " + str(n) + " Clusters: " + str(score))
+        
+    
     
 def main():
     
@@ -86,8 +120,12 @@ def main():
     labels_list = extract_Labels(name_list)
     #permissions = extract_Permissions(name_list)
     
-    permissions = write_In_file("../Data/Permissions.txt")
+    permissions = write_In_file("Permissions.txt")
+    permissions = listlist_to_stringlist(permissions)
+    
+    clustering_kMeans(permissions, labels_list)
 
+    
     return 0
 
 
