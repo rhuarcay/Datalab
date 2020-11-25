@@ -103,7 +103,7 @@ def clustering_kMeans(permissions_list, labels_list):
         the elbow method"""
     for n in range(1,22):
         pipeline = Pipeline([
-            ("cv", CountVectorizer()),
+            ("cv", CountVectorizer(strip_accents='ascii',min_df=0.10)),
             ("tffidf", TfidfTransformer()),
             ("cluster", KMeans(n_clusters = n) )
             ])
