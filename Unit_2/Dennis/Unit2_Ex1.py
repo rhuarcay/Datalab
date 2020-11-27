@@ -211,6 +211,7 @@ def train_classifier(features, labels, pipe=False, all_data=False):
             classifier = svm.SVC(C=1, kernel='rbf', gamma=1)
         
     print("Trainiere classifier")
+    
     classifier.fit(X_train, Y_train)
     
     print('Classifier trainiert!')

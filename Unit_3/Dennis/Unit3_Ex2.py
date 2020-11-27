@@ -11,6 +11,11 @@ import pickle
 from androguard import misc
 from androguard import session
 
+from sklearn.cluster import MeanShift
+from sklearn.metrics import adjusted_rand_score
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import GridSearchCV
+
 FILE = '../Data/Data_android'
 
 
@@ -107,6 +112,31 @@ def extract_permission_features(name_list, permission_set):
     
     return features
 
+def cluster_meanshift(features, labels):
+    #classifier = MeanShift(bandwidth = 2, cluster_all=False)
+    #classifier.fit(features)
+    
+    #score = adjusted_rand_score(classifier.labels_, labels)
+    #print("Score: " + str(score))
+    
+    
+    
+    pipeline = Pipeline([
+        #("tffidf", TfidfTransformer()),
+        ("cluster", MeanShift())
+        ])
+    classifier = GridSearchCV(pipeline, param_grid = {
+        "cluster__bandwidth": [1, 1.5, 2, 2.5, 3],
+        "cluster__min_bin_freq": [1, 2, 3, 4, 5],
+        "cluster__max_iter": [200, 300, 400, 500, 750, 1000]
+        }, scoring = 'adjusted_rand_score')
+    
+    print("Trainiere classifier")
+    classifier.fit(features, labels)
+    print('Classifier trainiert!')
+    
+    return classifier
+
 def write_Out_file(out_filename, out):
     """ Writes a List in a Outfile in the current directory
         used to store for Exam. the Permissions"""    
@@ -114,7 +144,7 @@ def write_Out_file(out_filename, out):
     with open(out_filename, "wb") as out_file:
         pickle.dump(out, out_file)
 
-def write_In_file(in_file):
+def read_In_file(in_file):
     """Writes a List to an outfile in the current directory"""
     with open(in_file, "rb") as in_file:    
         in_list = pickle.load(in_file)
@@ -139,13 +169,13 @@ def load_model(filepath):
     
 name_list = extract_Names(FILE)
 labels_list = extract_Labels(name_list)
+labels_array = np.array(labels_list)
     
 #permissions = extract_all_permissions(name_list)
+permissions = read_In_file('permission_set.pickle')
 
-permissions = write_In_file('permission_set.pickle')
+#features = extract_permission_features(name_list, permissions)
+features = load_model('permission_features.joblib')
 
-features = extract_permission_features(name_list, permissions)
-
-
-
-
+classifier = cluster_meanshift(features, labels_array)
+print(np.unique(classifier.labels_))
