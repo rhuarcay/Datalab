@@ -14,10 +14,11 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.cluster import KMeans
-from sklearn.metrics import adjusted_rand_score
+from sklearn.metrics import adjusted_rand_score, silhouette_score
 
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE = '../Data/Data_Ex2'
+FILE_VM = 'Data_Ex2'
 TESTFILE = 'Testdata_Ex1'
 
 
@@ -47,10 +48,23 @@ def write_Out_file(out_filename, out_list):
 
 def write_In_file(in_file):
     """Writes a List to an outfile in the current directory"""
+    name = in_file
     with open(in_file, "rb") as in_file:    
         in_list = pickle.load(in_file)
     
-    return in_list
+    out_list = []
+    #if Permission gibt only the Permissiom
+    if name == "Permissions.txt" or name == "Activities.txt":
+        for list in in_list:
+            out_list_2=[] 
+            for string in list:
+                s = string.split(".")[-1]
+                out_list_2.append(s)
+            out_list.append(out_list_2)
+    else:
+        out_list = in_list
+            
+    return out_list
 
 def listlist_to_stringlist(l):
     """ Verarbeitet die Liste von Listen von Dateien zu einer Liste an Strings
@@ -79,11 +93,12 @@ def extract_Permissions(name_list):
         try:
             a, d, dx = misc.AnalyzeAPK(file) # APK return 3 Elements a ist the 
         
-            permissions.append(a.get_permissions())
+            #permissions.append(a.get_permissions())
+            permissions.append(a.get_activities())
             sess.reset()
         except:
-            permissions.append("Permissions couldnt be extracted")
-            print("error in Permissions")
+            permissions.append("Activities couldnt be extracted")
+            print("error in Activities")
             sess.reset()
         
         i+=1
@@ -93,37 +108,60 @@ def extract_Permissions(name_list):
     print("Permissions already processed")
     print("Saving Permissions...")
     
-    permissions = listlist_to_stringlist(permissions)
-    write_Out_file("Permissions.txt", permissions)    
+    #permissions = listlist_to_stringlist(permissions)
+    write_Out_file("Activities.txt", permissions)    
     
     return permissions
+
+
+def load_model(filepath):
+    from joblib import load
+    model = load(filepath)
+    print('Model geladen von ' + filepath)
+    return model
 
 def clustering_kMeans(permissions_list, labels_list):
     """ This Functions gets a list of Permissions and use the Kmeans Cluster with the
         the elbow method"""
-    for n in range(1,22):
+    labels_list = np.array(labels_list)
+    inertia = [1]
+    for n in range(1,25):
         pipeline = Pipeline([
-            ("cv", CountVectorizer(strip_accents='ascii',min_df=0.10)),
+            ("cv", CountVectorizer(min_df=0.15)),
             ("tffidf", TfidfTransformer()),
             ("cluster", KMeans(n_clusters = n) )
             ])
         
         labels_predicted = pipeline.fit_predict(permissions_list)
+        inertia.append(pipeline.named_steps['cluster'].inertia_)
+        #silhouette = silhouette_score(labels_list,labels_predicted)
+        silhouette = ""
         score = adjusted_rand_score(labels_predicted, labels_list)
-        print("Score for " + str(n) + " Clusters: " + str(score))
+        print("Score for " + str(n) + " Clust: " + str(score)[:6]+ "/ Inertia: " +
+              str(inertia[n])[:6]+ "/ % " + str(((inertia[n]-inertia[n-1])/inertia[n-1])*100))
         
-    
-    
 def main():
     
     name_list = extract_Names(FILE)
     labels_list = extract_Labels(name_list)
     #permissions = extract_Permissions(name_list)
     
+    
     permissions = write_In_file("Permissions.txt")
     permissions = listlist_to_stringlist(permissions)
     
-    clustering_kMeans(permissions, labels_list)
+    activities = write_In_file("Activities.txt")
+    activities = listlist_to_stringlist(activities)
+    #activities_clean = []
+    
+    #Cleaning the List with activities
+    #for app in activities:
+    #    activities_clean.append(app.replace(".", " "))
+    
+    # Merging the 2 Lists together
+    features = [a + b for a, b in zip(permissions, activities)]
+    
+    clustering_kMeans(features, labels_list)
 
     
     return 0
