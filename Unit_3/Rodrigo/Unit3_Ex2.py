@@ -20,7 +20,7 @@ from sklearn.preprocessing import StandardScaler
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE = '../Data/Data_Ex2'
 FILE_VM = 'Data_Ex2'
-TESTFILE = 'Testdata_Ex1'
+TESTFILE = '../Data/Testdata_Ex2'
 
 
 def extract_Names(file):
@@ -55,7 +55,7 @@ def write_In_file(in_file):
     
     out_list = []
     #if Permission gibt only the Permissiom
-    if name == "Permissions.txt" or name == "Activities.txt":
+    if name == "Permissions_Data.txt" or name == "Activity_Data.txt" or name == "Permissions_Testdata.txt":
         for list in in_list:
             out_list_2=[] 
             for string in list:
@@ -126,6 +126,7 @@ def clustering_kMeans(permissions_list, labels_list):
         the elbow method"""
     labels_list = np.array(labels_list)
     inertia = [1]
+    labels_predicted = []
     for n in range(1,25):
         pipeline = Pipeline([
             ("cv", CountVectorizer(min_df=0.15)),
@@ -141,32 +142,71 @@ def clustering_kMeans(permissions_list, labels_list):
         score = adjusted_rand_score(labels_predicted, labels_list)
         print("Score for " + str(n) + " Clust: " + str(score)[:6]+ "/ Inertia: " +
               str(inertia[n])[:6]+ "/ % " + str(((inertia[n]-inertia[n-1])/inertia[n-1])*100))
+    
+    
+    return labels_predicted
+
+
+def clustering_KMeans_Testdata(features):
+    """ This Functions gets a list of Permissions and use the Kmeans Cluster with the
+        the elbow method"""
+    inertia = [1]
+    labels_predicted = []
+    for n in range(1,25):
+        pipeline = Pipeline([
+            ("cv", CountVectorizer(min_df=0.15)),
+            ("tffidf", TfidfTransformer()),
+            #("scaler", StandardScaler()),
+            ("cluster", KMeans(n_clusters = n) )
+            ])
         
+        labels_predicted = pipeline.fit_predict(features)
+        inertia.append(pipeline.named_steps['cluster'].inertia_)
+        print("Score for " + str(n) + " Clust: / Inertia: " + str(inertia[n])[:6]+ "/ % " + str(((inertia[n]-inertia[n-1])/inertia[n-1])*100))       
+    
+    return 0
+    
 def main():
     
-    name_list = extract_Names(FILE)
-    labels_list = extract_Labels(name_list)
+    name_list = extract_Names(TESTFILE)
+    #labels_list = extract_Labels(name_list)
     #permissions = extract_Permissions(name_list)
     
-    
-    permissions = write_In_file("Permissions.txt")
+    """
+    permissions = write_In_file("Permissions_Data.txt")
     permissions = listlist_to_stringlist(permissions)
     
-    activities = write_In_file("Activities.txt")
+    activities = write_In_file("Activity_Data.txt")
     activities = listlist_to_stringlist(activities)
-    #activities_clean = []
     
-    #Cleaning the List with activities
-    #for app in activities:
-    #    activities_clean.append(app.replace(".", " "))
+    provider = write_In_file("Provider_Data.txt")
+    provider = listlist_to_stringlist(provider)
+    for i, file in enumerate(provider):
+        provider[i] = provider[i].split(".")
+    provider = listlist_to_stringlist(provider)
     
-    # Merging the 2 Lists together
-    features = [a + b for a, b in zip(permissions, activities)]
+    receiver = write_In_file("Receiver_Data.txt")
+    receiver = listlist_to_stringlist(receiver)
+    for i, file in enumerate(receiver):
+        receiver[i] = receiver[i].split(".")
+    receiver = listlist_to_stringlist(receiver)
+    
+    service = write_In_file("Service_Data.txt")
+    service = listlist_to_stringlist(service)
+    for i, file in enumerate(service):
+        service[i] = service[i].split(".")
+    service = listlist_to_stringlist(service)
+    """
+    permissions_test = write_In_file("Permissions_Testdata.txt")
+    permissions_test = listlist_to_stringlist(permissions_test)
+    
+    #Merging the 5 Lists together
+    #features = [a for a,b,c,d,e in zip(permissions, activities, provider, receiver, service)]
     
     #features = write_In_file("FEATURES.txt")
     
-    clustering_kMeans(features, labels_list)
-
+    #labels_predicted = clustering_kMeans(features, labels_list)
+    clustering_KMeans_Testdata(permissions_test)
     
     return 0
 

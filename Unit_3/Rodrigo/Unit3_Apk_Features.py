@@ -13,7 +13,7 @@ import zipfile as zipp
 import pickle
 import numpy as np
 
-FILE_VM = 'Data_Ex2'
+FILE_VM = 'Testdata_Ex2'
 #Features:
 
 
@@ -22,7 +22,7 @@ def extract_Names(file):
     """Gibt die Namen der Dateien und die Label dazu zurück"""
     file = file + '.zip'
     zf = zipp.ZipFile(file)
-    name = zf.namelist()[:-1]
+    name = zf.namelist()
     return name
 
 def write_Out_file(out_filename, out_list):
@@ -85,11 +85,11 @@ def features_extraction(name_list):
 def main():
     name_list = extract_Names(FILE_VM)
     permissions, activity, service, receiver, provider = features_extraction(name_list)
-    write_Out_file("Permissions_Data.txt", permissions)
-    write_Out_file("Activity_Data.txt", activity)
-    write_Out_file("Service_Data.txt", service)
-    write_Out_file("Receiver_Data.txt", receiver)
-    write_Out_file("Provider_Data.txt", provider)
+    write_Out_file("Permissions_Testdata.txt", permissions)
+    write_Out_file("Activity_Testdata.txt", activity)
+    write_Out_file("Service_Testdata.txt", service)
+    write_Out_file("Receiver_Testdata.txt", receiver)
+    write_Out_file("Provider_Testdata.txt", provider)
     
     
     return 0
