@@ -15,6 +15,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score, silhouette_score
+from sklearn.preprocessing import StandardScaler
 
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE = '../Data/Data_Ex2'
@@ -129,6 +130,7 @@ def clustering_kMeans(permissions_list, labels_list):
         pipeline = Pipeline([
             ("cv", CountVectorizer(min_df=0.15)),
             ("tffidf", TfidfTransformer()),
+            #("scaler", StandardScaler()),
             ("cluster", KMeans(n_clusters = n) )
             ])
         
@@ -160,6 +162,8 @@ def main():
     
     # Merging the 2 Lists together
     features = [a + b for a, b in zip(permissions, activities)]
+    
+    #features = write_In_file("FEATURES.txt")
     
     clustering_kMeans(features, labels_list)
 
