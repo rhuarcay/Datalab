@@ -6,6 +6,8 @@ Created on Sun Nov 29 16:09:51 2020
 """
 from androguard import misc
 from androguard import session
+from androguard.core.bytecodes.dvm import DalvikVMFormat
+from androguard.core.analysis.analysis import Analysis
 import os
 import zipfile as zipp
 import pickle
@@ -34,9 +36,9 @@ def features_extraction(name_list):
     print("Features werden extrahiert, bitte warten...")
     
     FEATURES = np.zeros((len(name_list), 59))
-    print("1000 Files need to be processed")
-    for i, file in enumerate(name_list[:10]):
-        print("File " + str(i+1) + "/1000 is been processed")
+    print(str(len(name_list)) + " Files need to be processed")
+    for i, file in enumerate(name_list):
+        print("File " + str(i+1) + "/"+ str(len(name_list))+" is been processed")
         features = analyseAPK(i, file)
         for j in range(0,59):
             FEATURES[i,j] = features[0,j]
@@ -67,6 +69,8 @@ def analyseAPK(i, file):
     sess = misc.get_default_session()
     try:
         a, d, dx = misc.AnalyzeAPK(file) # APK return 3 Elements a ist the 
+        d = DalvikVMFormat(a, decompiler='dad')
+        dx = Analysis(d)
     
     except:
         # Permissions need to be filled with 0
@@ -103,20 +107,23 @@ def analyseAPK(i, file):
         target_andr_ver = 0
     
     # 6 Methods Counts
-    #method_count = d.get_len_methods()
+    method_count = d.get_len_methods()
     # 7 Class Counts
-    #class_count = len(d.get_classes())
-    # 8
-    crypto_count = len(dx.get_tainted_packages().search_methods('Ljava/crypto/.', '.', '.'))
+    class_count = len(d.get_classes())
+    """
+    # 8 Crypto_count
+    crypto_count = len(dx.find_methods('Ljava/crypto/.', '.', '.'))
     # 9
     dynCode_count = len(dx.get_tainted_packages().search_methods('Ldalvik/system/DexClassLoader/.', '.', '.'))
     # 10
     native_count = len(dx.get_tainted_packages().search_methods('Ljava/lang/System;', '.', '.'))
     # 11
     reflect_count = len(dx.get_tainted_packages().search_methods('Ljava/lang/reflect/Method;', '.', '.'))
+    """
     # 12 File Count
     file_count = len(a.get_files())
     
+    """
     # API Features
     # 13 sendSMS
     if (len(dx.get_tainted_packages().search_methods('Landroid/telephony/SmsManager;', 'send[a-zA-Z]+Message', '.')) > 0) or (len(dx.get_tainted_packages().search_methods('Landroid/telephony/gsm/SmsManager;', 'send[a-zA-Z]+Message', '.')) > 0):
@@ -193,6 +200,7 @@ def analyseAPK(i, file):
             spinner_count += 1
         elif 'Landroid/widget/ListView;' in field[1]:
             listView_count += 1
+    """
     
     # Permissions
     # Permission features
@@ -318,19 +326,21 @@ def analyseAPK(i, file):
     # 58 Provider count
     provider_count = len(a.get_providers())
     
-    # 59 Exported count    
-    for activity in a.get_AndroidManifest().getElementsByTagName('activity'):
+    # 59 Exported count
+    """    
+    for activity in a.get_android_manifest_xml().getElementsByTagName('activity'):
         if activity.getAttribute('android:exported') == 'true':
             exported_count += 1
-    for service in a.get_AndroidManifest().getElementsByTagName('service'):
+    for service in a.get_android_manifest_xml().getElementsByTagName('service'):
         if activity.getAttribute('android:exported') == 'true':
             exported_count += 1
-    for receiver in a.get_AndroidManifest().getElementsByTagName('receiver'):
+    for receiver in a.get_android_manifest_xml().getElementsByTagName('receiver'):
         if activity.getAttribute('android:exported') == 'true':
             exported_count += 1
-    for provider in a.get_AndroidManifest().getElementsByTagName('provider'):
+    for provider in a.get_android_manifest_xml().getElementsByTagName('provider'):
         if activity.getAttribute('android:exported') == 'true':
             exported_count += 1
+    """
     
     #Fill the array
     features[0,0],features[0,1],features[0,2],features[0,3],features[0,4]= apk_size, dex_size, min_andr_ver, max_andr_ver, target_andr_ver
