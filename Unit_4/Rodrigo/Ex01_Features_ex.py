@@ -40,20 +40,23 @@ def total_sizes(cap):
 
 def features_ex(root):
     count = 0
-
+    label = []
     tOutSizes, tInSizes, tNumPack, noOutPack, noInPack = [], [], [], [], []
     ratio, packSizes = [], []
     f = ""
     for path, subdirs, files in os.walk(root):
         for name in files:
+            l_name = ""
             print("FILE Nr. " + str(count) + " is been processed, please wait")
             count +=1
             file = os.path.join(path, name)
+            l_name = name.split("_")[0]
             cap = pyshark.FileCapture(file)
             total_outcoming_sizes, total_incoming_sizes, total_number_packets, no_outgoing_packets, no_incoming_packets, pack_sizes = total_sizes(
                 cap)
             ratio_incoming_outgoing = no_outgoing_packets / no_incoming_packets
 
+            label.append(l_name)
             tOutSizes.append(total_outcoming_sizes)
             tInSizes.append(total_incoming_sizes)
             tNumPack.append(total_number_packets)
@@ -87,7 +90,7 @@ def features_ex(root):
 
     #print(features)
 
-    return features
+    return features, label
 
 
 def write_Out_file(out_filename, out_list):
@@ -99,10 +102,12 @@ def write_Out_file(out_filename, out_list):
 
 def main():
     root = os.path.join(MY_DIR, "Data")
+    print("Root: " + str(root))
     print("Features are being extracted")
-    features = features_ex(root)
+    features, labels = features_ex(root)
     write_Out_file("Features.txt", features)
-
+    write_Out_file("Labels.txt", labels)
+    
     print("Features Extraction is done")
 
     return 0
