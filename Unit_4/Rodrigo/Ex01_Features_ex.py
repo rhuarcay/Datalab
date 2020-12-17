@@ -110,12 +110,12 @@ def write_Out_file(out_filename, out_list):
         pickle.dump(out_list, out_file)
 
 def main():
-    root = os.path.join(MY_DIR, "Data")
+    root = os.path.join(MY_DIR, "TestData")
     print("Root: " + str(root))
     print("Features are being extracted")
     features, labels = features_ex(root)
-    write_Out_file("Features.txt", features)
-    write_Out_file("Labels.txt", labels)
+    write_Out_file("TestData_Features.txt", features)
+    write_Out_file("TestData_Labels.txt", labels)
 
     print("Features Extraction is done")
 
