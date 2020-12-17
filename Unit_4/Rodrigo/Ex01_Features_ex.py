@@ -25,11 +25,19 @@ def total_sizes(cap):
     for pkt in cap:
         len = int(pkt.captured_length)
         t_num += 1
-        if pkt.ip.src == ENTRY:
-            t_out += len
-            no_out += 1
-            len = len*-1
-        else:
+
+        try:
+            ip = pkt.ip.src
+
+            if ip == ENTRY:
+                t_out += len
+                no_out += 1
+                len = len*-1
+            else:
+                t_in += len
+                no_in += 1
+        except:
+            print("Problem with Package nr. " + str(t_num) + " in " + str(cap.input_filename))
             t_in += len
             no_in += 1
 
@@ -76,7 +84,7 @@ def features_ex(root):
             """
             cap.close()
 
-    features = np.zeros(count, 46)
+    features = np.zeros((count, 46))
     for i in range(0, count):
         features[i, 0] = tOutSizes[i]
         features[i, 1] = tInSizes[i]
@@ -86,7 +94,8 @@ def features_ex(root):
         features[i, 5] = ratio[i]
 
         for j in range(6,46):
-            features[i,j] = pack_sizes[i][j-6]
+            features[i,j] = packSizes[i][j-6]
+
 
     #print(features)
 
@@ -107,7 +116,7 @@ def main():
     features, labels = features_ex(root)
     write_Out_file("Features.txt", features)
     write_Out_file("Labels.txt", labels)
-    
+
     print("Features Extraction is done")
 
     return 0
