@@ -6,7 +6,17 @@ import pickle
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 SERVER = '192.168.178.30'
 FILE = "nids-train.pcap"
-
+'''
+Features FTP Payload:
+(1)- Lenght of Payload
+(2)- Number of Words
+(3)- Index: (1)/(2) 
+(4)- Entropy: TODO Methoden zur berechnung von Entropy
+(5)- Nonprint Zeichen
+(6)- Punkte Zeichen
+(7) max lenght Wort
+#(8) min lenght Wort
+'''
 def Conversation_ex(file):
 
     cap = pyshark.FileCapture(file)
