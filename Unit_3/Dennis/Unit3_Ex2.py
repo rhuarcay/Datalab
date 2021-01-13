@@ -15,8 +15,9 @@ from sklearn.cluster import MeanShift
 from sklearn.metrics import adjusted_rand_score
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
-FILE = '../Data/Data_android'
+FILE = '../Data/Data_Ex2'
 
 
 def extract_Names(file):
@@ -166,16 +167,83 @@ def load_model(filepath):
     model = load(filepath)
     print('Model geladen von ' + filepath)
     return model
+
+#--------------------------------------------------------------------------------
+#Von Rodrigo reinkopiert
+
+def write_In_file(in_file):
+    """Writes a List to an outfile in the current directory"""
+    #name = in_file
+    with open(in_file, "rb") as in_file:    
+        in_list = pickle.load(in_file)
+    
+    out_list = []
+    #if Permission gibt only the Permissiom
+    for list in in_list:
+        out_list_2=[] 
+        for string in list:
+            s = string.split(".")[-1]
+            out_list_2.append(s)
+        out_list.append(out_list_2)
+            
+    return out_list
+
+def listlist_to_stringlist(l):
+    """ Verarbeitet die Liste von Listen von Dateien zu einer Liste an Strings
+        Die Dateinamen werden dabei einfach nacheinander in einen String gespeichert
+        Und in eine Liste geworfen"""
+    stringlist = []
+    for entry in l:
+        string = ''
+        for list_entry in entry:
+            string = string + ' ' + list_entry
+        stringlist.append(string)
+    return stringlist
+
+#MeanShift dafür
+def cluster_MeanShift_CV(features, labels):
+    pipeline = Pipeline([
+        ("cv", CountVectorizer(min_df=0.15)),
+        ("tffidf", TfidfTransformer()),
+        ("cluster", MeanShift())
+        ])
+    classifier = GridSearchCV(pipeline, param_grid = {
+        "cluster__bandwidth": [1, 1.5, 2, 2.5, 3],
+        "cluster__min_bin_freq": [1, 2, 3, 4, 5],
+        "cluster__max_iter": [200, 300, 400, 500, 750, 1000]
+        }, scoring = 'adjusted_rand_score')
+    
+    print("Trainiere classifier")
+    classifier.fit(features, labels)
+    print('Classifier trainiert!')
+    
+    print('Beste Parameter:')
+    print(classifier.best_params_)
+    print('Bester Score:')
+    print(classifier.best_score_)
+    
+    return classifier
+
+#--------------------------------------------------------------------------------
     
 name_list = extract_Names(FILE)
 labels_list = extract_Labels(name_list)
 labels_array = np.array(labels_list)
     
 #permissions = extract_all_permissions(name_list)
-permissions = read_In_file('permission_set.pickle')
+#permissions = read_In_file('permission_set.pickle')
 
 #features = extract_permission_features(name_list, permissions)
-features = load_model('permission_features.joblib')
+#features = load_model('permission_features.joblib')
+#classifier = cluster_meanshift(features, labels_array)
 
-classifier = cluster_meanshift(features, labels_array)
-print(np.unique(classifier.labels_))
+permissions = write_In_file("../Rodrigo/Permissions.txt")
+permissions = listlist_to_stringlist(permissions)
+
+activities = write_In_file("../Rodrigo/Activities.txt")
+activities = listlist_to_stringlist(activities)
+
+features = [a + b for a, b in zip(permissions, activities)]
+
+classifier = cluster_MeanShift_CV(features, labels_array)
+#print(np.unique(classifier.labels_))
