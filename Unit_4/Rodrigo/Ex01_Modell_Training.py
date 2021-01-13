@@ -136,27 +136,27 @@ def main():
         
     #For Trainingsdaten
     #------------------------------------------
-    features = write_In_file("Features.txt")
-    labels = write_In_file("Labels.txt")
+    #features = write_In_file("Features.txt")
+    #labels = write_In_file("Labels.txt")
     #Prepocesing von Labels
-    le = preprocessing.LabelEncoder()
-    le.fit(labels)
+    #le = preprocessing.LabelEncoder()
+    #le.fit(labels)
     #From Nominal to Ordinal Values
-    enc_labels = le.transform(labels)
+    #enc_labels = le.transform(labels)
     #clf = multiclass_SVM(features, enc_labels)
     #save_model(clf, "Multiclass_SVM")
     #----------------------------------------------------
     #For Testdaten
     
     #Einlesen der Features und Namen
-    test_features = write_In_file("TestData_Features.txt")
-    names = write_In_file("TestData_Labels.txt")
+    #test_features = write_In_file("TestData_Features.txt")
+    #names = write_In_file("TestData_Labels.txt")
     
     #Predictions vom Model
-    predictions = classify_data(features, test_features)
-    str_predictions = le.inverse_transform(predictions)
+    #predictions = classify_data(features, test_features)
+    #str_predictions = le.inverse_transform(predictions)
     
-    write_to_output(names, str_predictions)
+    #write_to_output(names, str_predictions)
     
     print("Classifizierung Done....")
     
