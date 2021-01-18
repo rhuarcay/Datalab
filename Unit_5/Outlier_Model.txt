@@ -1,0 +1,28 @@
+0
+155 - Outlier
+545 - NO
+867 - Outlier
+1120 - Outlier
+1161 - Outlier
+1226 - Outlier
+1781 - Outlier
+2253 - Outlier
+2470 - leeres request, deswegen als Outlier
+3549 - NO
+3639
+3946
+4538
+4746
+4804
+5473
+5837
+6303
+6428
+6692 - Outlier
+6751
+7013
+7580
+7846
+7859
+8330
+8389 - Outlier
