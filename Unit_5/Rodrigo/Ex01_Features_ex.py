@@ -113,6 +113,7 @@ def features_ex(file):
     features = np.empty((138022, 10), dtype=object)
     #communication = np.empty((10000,3), dtype=object) # index, String, Anzhal Commandos, Unique Commandos 
     communication = np.zeros((10000,3))
+    Sc_dst_IP_PORT = np.empty((10000), dtype=object)
     
     cap = pyshark.FileCapture(file)
     i = 0
@@ -121,20 +122,31 @@ def features_ex(file):
     s_communication = ""
     commands = 0
     command_set = {"A"}
+    
+    
     for pkt in cap:
 
         k_string = ""
+        
         
         
         if "FTP" in str(pkt.layers) and str(pkt.ip.src) != "192.168.178.30" and str(pkt.tcp.payload).strip() != "0d:0a":
             #Stream Index für den Packet
             stream_index = int(pkt.tcp.stream)
             
+            src_ip = str(pkt.ip.src)
+            src_port = str(pkt.tcp.srcport)
+            dst_ip = str(pkt.ip.dst)
+            dst_port = str(pkt.tcp.dstport)
+            
+            
             if stream_index != index_stream:
                 #Text auf Gesamt Verbindung
-                communication[index_stream, 0]= s_communication.strip()
-                communication[index_stream, 1]= commands # Anzahl Commands
-                communication[index_stream, 2]= len(command_set)-1 # Anzahl Unique Commands
+                #192.168.178.88:47611->192.168.178.30:21;1
+                Sc_dst_IP_PORT[index_stream] = (src_ip + ":" + src_port + "->" + dst_ip + ":" + dst_port)
+                communication[index_stream, 0]= commands # Anzahl Commands
+                communication[index_stream, 1]= len(command_set)-1 # Anzahl Unique Commands
+                communication[index_stream, 2]= commands/(len(command_set)-1)
                 
                 command_set = {"A"}
                 commands = 0
@@ -165,14 +177,20 @@ def features_ex(file):
             i += 1
             commands += 1
             command_set.add(command_string.strip())
-
+            
+            src_ip = ""
+            src_port = ""
+            dst_ip = ""
+            dst_port = ""
+            
 
     
-    communication[index_stream, 0]= s_communication.strip()
-    communication[index_stream, 1]= commands # Anzahl Commands
-    communication[index_stream, 2]= len(command_set)-1 # Anzahl Unique Commands
+    communication[index_stream, 0]= commands # Anzahl Commands
+    communication[index_stream, 1]= len(command_set)-1 # Anzahl Unique Commands
+    communication[index_stream, 2]= commands/(len(command_set)-1)
     cap.close()
-    return features, communication
+    #  Features=Packets, Communication=TCP Verbindung, Src_dst IP,PORT
+    return features, communication , Sc_dst_IP_PORT
 
 def write_Out_file(out_filename, out_list):
     """ Writes a List in a Outfile in the current directory
@@ -185,10 +203,10 @@ def main():
     root = os.path.join(MY_DIR, FILE)
     print("Root: " + str(root))
     print("Features are being extracted")
-    features, communication = features_ex(root)
+    features, communication, scr_dst_IP = features_ex(root)
     write_Out_file("Features.txt", features) # Features List
     write_Out_file("TCP_Verbindung.txt", communication) # Kommunikation List
-    write_Out_file("Errors.txt", __ERRORLIST) # Error List
+    write_Out_file("SRC_DST_IPPORT.txt", scr_dst_IP) # Src_IP 
 
     print("Features Extraction is done")
 

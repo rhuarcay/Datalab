@@ -75,14 +75,28 @@ def outlier_detec():
 
 def outlier_entfernung(klassification, tcp_stream_index):
     """Erstellung ein Set mir alle Outlier"""
-    pkt_set = {0}
+    pkt_set = {-1}
     for counter, pkt in enumerate(klassification):
         if pkt == -1:
             pkt_set.add(counter)
-    outlier_tcpstream = {0}
+    outlier_tcpstream = {-1}
     for pkt in pkt_set:
         outlier_tcpstream.add(tcp_stream_index[pkt])
     return outlier_tcpstream
+
+def outlier_standarisierung(set_pkt, klassification_comm):
+    """method um beide arbeten von Outlier auf TCP Stream zu standarisieren"""
+    prediction = np.zeros(10000)
+    
+    for i in range(klassification_comm):
+        if klassification_comm[i]==-1:
+            prediction[i]=1
+        
+    for outlier in set_pkt:
+        if outlier != -1:
+            prediction[outlier]=1
+
+    return prediction
 
 '''
 def main():
@@ -108,28 +122,45 @@ if __name__ == "__main__":
 # NUR FÜR TESTING SONST IN MAIN
 #For Trainings Daten
 print("Importing Files")
+#Total Features für FTP Packet
 total_features = write_In_file("Features.txt") #Features in List
-tcp_stream_index = total_features[:137952,0] #Index of Stream TCP + Src.ip etc
-#features = total_features[:137952,5:6] #Bytes
-features = total_features[:137952,5:7] #Index
-#features = np.concatenate((features,features2),axis = 1)
-#manuel_out = manuel_outlier_detec(total_features[:137952,0:7])
-Communikation = write_In_file("TCP_Verbindung.txt")
-total_features2 = write_In_file("Features2.txt")
-"""
 
+#Features für TCP Verbindung
+Communikation = write_In_file("TCP_Verbindung.txt")
+
+#SRC_DST_IP/PORT
+ip_port = write_In_file("SRC_DST_IPPORT.txt")
+
+tcp_stream_index = total_features[:137952,0] #Index of Stream TCP + Src.ip etc
+
+features = total_features[:137952,5:7] #Index
+
+
+#Ausgewählte Features für TCP Verbidung
+commu_features = Communikation[:,:1]
+"""
 print("Erzeugung CV Features")
 x_Data = total_features[:137952, 2:3]
 string_features = use_count_vectorizer(x_Data)
-
-
+"""
+"""
 print("Normierung")
 features = normalise_features(features)
-clf = outlier_detec()
+"""
+"""
+#Erzeugung der Outlier Detection Models
+clf_pkt = outlier_detec()
+clf_comm = outlier_detec()
 print("Outlier detection")
-klassification = clf.fit_predict(features)
-print("Erkennung von TCP_Stream")
-outlier_tcpstream = outlier_entfernung(klassification, tcp_stream_index)
+klassification_pkt = clf_pkt.fit_predict(features)
+klassification_comm = clf_comm.fit_predict(commu_features)
+
+#Set Für Outlier
+print("Erkennung von TCP_Stream anhand Packet")
+outlier_pkt = outlier_entfernung(klassification, tcp_stream_index)
+
+#Funktion um beide zusammenzuführen
+
 print("Writing a file out")
 write_to_output(sorted(outlier_tcpstream))
 """

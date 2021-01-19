@@ -10,19 +10,19 @@
 2470 - leeres request, deswegen als Outlier
 3549 - NO
 3639
-3946
+3946 - Outlier
 4538
 4746
-4804
-5473
-5837
-6303
-6428
+4804 - Outlier
+5473 - Outlier
+5837 - Outlier
+6303 - Outlier
+6428 - Outlier
 6692 - Outlier
-6751
-7013
+6751 - Outlier
+7013 - Outlier
 7580
 7846
-7859
+7859 - Outlier
 8330
 8389 - Outlier
