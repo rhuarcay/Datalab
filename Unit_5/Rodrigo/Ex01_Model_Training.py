@@ -43,7 +43,6 @@ def my_tokenizer(text):
 
 def use_count_vectorizer(x_Data):
     
-    x_Data = x_Data.tolist()
     cv = CountVectorizer(min_df = 0.001, max_df = 0.25, token_pattern=regexPattern)
     cv.fit(x_Data)
     
@@ -115,12 +114,15 @@ tcp_stream_index = total_features[:137952,0] #Index of Stream TCP + Src.ip etc
 features = total_features[:137952,5:7] #Index
 #features = np.concatenate((features,features2),axis = 1)
 #manuel_out = manuel_outlier_detec(total_features[:137952,0:7])
+Communikation = write_In_file("TCP_Verbindung.txt")
+total_features2 = write_In_file("Features2.txt")
+"""
 
 print("Erzeugung CV Features")
 x_Data = total_features[:137952, 2:3]
 string_features = use_count_vectorizer(x_Data)
 
-"""
+
 print("Normierung")
 features = normalise_features(features)
 clf = outlier_detec()
