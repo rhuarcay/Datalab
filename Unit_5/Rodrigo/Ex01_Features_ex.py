@@ -9,6 +9,7 @@ import re
 MY_DIR = os.path.dirname(os.path.abspath(__file__))
 SERVER = '192.168.178.30'
 FILE = "nids-train.pcap"
+TESTFILE = "nids-test.pcap"
 LOCALDIR = "../Data/nids-train.pcap"
 TESTOUTLIER = "../Data/outlier.pcapng"
 __ERRORLIST = []
@@ -139,11 +140,12 @@ def features_ex(file):
             dst_ip = str(pkt.ip.dst)
             dst_port = str(pkt.tcp.dstport)
             
+            #192.168.178.88:47611->192.168.178.30:21;1
+            Sc_dst_IP_PORT[stream_index] = (src_ip + ":" + src_port + "->" + dst_ip + ":" + dst_port)
             
             if stream_index != index_stream:
                 #Text auf Gesamt Verbindung
-                #192.168.178.88:47611->192.168.178.30:21;1
-                Sc_dst_IP_PORT[index_stream] = (src_ip + ":" + src_port + "->" + dst_ip + ":" + dst_port)
+                
                 communication[index_stream, 0]= commands # Anzahl Commands
                 communication[index_stream, 1]= len(command_set)-1 # Anzahl Unique Commands
                 communication[index_stream, 2]= commands/(len(command_set)-1)
@@ -200,13 +202,13 @@ def write_Out_file(out_filename, out_list):
         pickle.dump(out_list, out_file)
 
 def main():
-    root = os.path.join(MY_DIR, FILE)
+    root = os.path.join(MY_DIR, TESTFILE)
     print("Root: " + str(root))
     print("Features are being extracted")
     features, communication, scr_dst_IP = features_ex(root)
-    write_Out_file("Features.txt", features) # Features List
-    write_Out_file("TCP_Verbindung.txt", communication) # Kommunikation List
-    write_Out_file("SRC_DST_IPPORT.txt", scr_dst_IP) # Src_IP 
+    write_Out_file("Features_TEST.txt", features) # Features List
+    write_Out_file("TCP_Verbindung_TEST.txt", communication) # Kommunikation List
+    write_Out_file("SRC_DST_IPPORT_TEST.txt", scr_dst_IP) # Src_IP 
 
     print("Features Extraction is done")
 

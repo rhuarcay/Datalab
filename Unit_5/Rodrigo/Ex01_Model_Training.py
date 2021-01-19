@@ -88,7 +88,7 @@ def outlier_standarisierung(set_pkt, klassification_comm):
     """method um beide arbeten von Outlier auf TCP Stream zu standarisieren"""
     prediction = np.zeros(10000)
     
-    for i in range(klassification_comm):
+    for i in range(len(klassification_comm)):
         if klassification_comm[i]==-1:
             prediction[i]=1
         
@@ -98,6 +98,14 @@ def outlier_standarisierung(set_pkt, klassification_comm):
 
     return prediction
 
+def write_to_outputCSV(names, label):
+    f = open("output.csv", "wt")
+    
+    for name, pred in zip(names, label):
+        f.write("%s;%d" % (name, pred) + '\n')
+    
+    f.close()
+    
 '''
 def main():
     #For Trainings Daten
@@ -123,31 +131,26 @@ if __name__ == "__main__":
 #For Trainings Daten
 print("Importing Files")
 #Total Features für FTP Packet
-total_features = write_In_file("Features.txt") #Features in List
+total_features = write_In_file("Features_TEST.txt") #Features in List
 
 #Features für TCP Verbindung
-Communikation = write_In_file("TCP_Verbindung.txt")
+Communikation = write_In_file("TCP_Verbindung_TEST.txt")
 
 #SRC_DST_IP/PORT
-ip_port = write_In_file("SRC_DST_IPPORT.txt")
+ip_port = write_In_file("SRC_DST_IPPORT_TEST.txt")
 
 tcp_stream_index = total_features[:137952,0] #Index of Stream TCP + Src.ip etc
 
-features = total_features[:137952,5:7] #Index
+features = total_features[:137952,7:9] #Index
 
 
 #Ausgewählte Features für TCP Verbidung
-commu_features = Communikation[:,:1]
-"""
-print("Erzeugung CV Features")
-x_Data = total_features[:137952, 2:3]
-string_features = use_count_vectorizer(x_Data)
-"""
+commu_features = Communikation[:,1:2]
+
 """
 print("Normierung")
 features = normalise_features(features)
-"""
-"""
+
 #Erzeugung der Outlier Detection Models
 clf_pkt = outlier_detec()
 clf_comm = outlier_detec()
@@ -157,10 +160,14 @@ klassification_comm = clf_comm.fit_predict(commu_features)
 
 #Set Für Outlier
 print("Erkennung von TCP_Stream anhand Packet")
-outlier_pkt = outlier_entfernung(klassification, tcp_stream_index)
+outlier_pkt = outlier_entfernung(klassification_pkt, tcp_stream_index)
 
 #Funktion um beide zusammenzuführen
+prediction = outlier_standarisierung(outlier_pkt, klassification_comm)
+
+
 
 print("Writing a file out")
-write_to_output(sorted(outlier_tcpstream))
+
+write_to_outputCSV(ip_port, prediction)
 """
