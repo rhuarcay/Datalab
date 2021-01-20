@@ -145,7 +145,7 @@ features = total_features[:132154,7:9] #Index
 
 
 #Ausgewählte Features für TCP Verbidung
-commu_features = Communikation[:,1:2]
+commu_features = Communikation[:,0:3]
 
 
 #print("Normierung")

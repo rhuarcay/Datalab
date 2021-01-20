@@ -131,7 +131,7 @@ def features_ex(file):
         
         
         
-        if "FTP" in str(pkt.layers) and str(pkt.ip.src) != "192.168.178.30" and str(pkt.tcp.payload).strip() != "0d:0a":
+        if "FTP" in str(pkt.layers) and str(pkt.ip.src) != "192.168.178.30":
             #Stream Index für den Packet
             stream_index = int(pkt.tcp.stream)
             
@@ -143,42 +143,45 @@ def features_ex(file):
             #192.168.178.88:47611->192.168.178.30:21;1
             Sc_dst_IP_PORT[stream_index] = (src_ip + ":" + src_port + "->" + dst_ip + ":" + dst_port)
             
-            if stream_index != index_stream:
-                #Text auf Gesamt Verbindung
-                
-                communication[index_stream, 0]= commands # Anzahl Commands
-                communication[index_stream, 1]= len(command_set)-1 # Anzahl Unique Commands
-                communication[index_stream, 2]= commands/(len(command_set)-1)
-                
-                command_set = {"A"}
-                commands = 0
-                s_communication = "" #String leeren
-                
-                
-                print("TCP Stream DONE: " + str(stream_index))
-                index_stream = stream_index
-
-            #Payload extrahieren
-            hex_payload, feature1, s_Payload, command_string, arg_string, feature2, feature3, feature5, feature6 = get_tcp_payload(pkt, stream_index)
-            #print("TCP_S: " + str(stream_index) + " Packet: " + str(i) + "  Bytes: " + str(feature1) + " Words: " + str(feature2) + " 1/2Index: " + str(feature3))
-        
+            if str(pkt.tcp.payload).strip() != "0d:0a":
             
-            features[i, 0] = stream_index # TCP Stream Index Nr.
-            features[i, 1] = str(hex_payload).strip()
-            features[i, 2] = s_Payload.strip() # String Payload
-            features[i, 3] = str(command_string).strip() #String Command
-            features[i, 4] = str(arg_string).strip() #String Arg
-            features[i, 5] = int(feature1) # Bytes FTP
-            features[i, 6] = int(feature2) # Nr. Words in Payload
-            features[i, 7] = int(feature3) # KPI(Bytes/Index)
-            features[i, 8] = int(feature5) # Non Printable Char
-            features[i, 9] = int(feature6) # Punkte im Text
-
-            #Gesamte Kommunikation pro Verbindung
-            s_communication += '\n' + s_Payload.strip()
-            i += 1
-            commands += 1
-            command_set.add(command_string.strip())
+                if stream_index != index_stream:
+                    #Text auf Gesamt Verbindung
+                    
+                    communication[index_stream, 0]= commands # Anzahl Commands
+                    communication[index_stream, 1]= len(command_set)-1 # Anzahl Unique Commands
+                    communication[index_stream, 2]= commands/(len(command_set)-1)
+                    
+                    command_set = {"A"}
+                    commands = 0
+                    s_communication = "" #String leeren
+                    
+                    
+                    print("TCP Stream DONE: " + str(stream_index))
+                    index_stream = stream_index
+    
+                #Payload extrahieren
+                hex_payload, feature1, s_Payload, command_string, arg_string, feature2, feature3, feature5, feature6 = get_tcp_payload(pkt, stream_index)
+                #print("TCP_S: " + str(stream_index) + " Packet: " + str(i) + "  Bytes: " + str(feature1) + " Words: " + str(feature2) + " 1/2Index: " + str(feature3))
+            
+                
+                features[i, 0] = stream_index # TCP Stream Index Nr.
+                features[i, 1] = str(hex_payload).strip()
+                features[i, 2] = s_Payload.strip() # String Payload
+                features[i, 3] = str(command_string).strip() #String Command
+                features[i, 4] = str(arg_string).strip() #String Arg
+                features[i, 5] = int(feature1) # Bytes FTP
+                features[i, 6] = int(feature2) # Nr. Words in Payload
+                features[i, 7] = int(feature3) # KPI(Bytes/Index)
+                features[i, 8] = int(feature5) # Non Printable Char
+                features[i, 9] = int(feature6) # Punkte im Text
+                
+                #Gesamte Kommunikation pro Verbindung
+                s_communication += '\n' + s_Payload.strip()
+                i += 1
+                commands += 1
+                command_set.add(command_string.strip())
+            
             
             src_ip = ""
             src_port = ""
