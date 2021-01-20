@@ -139,17 +139,17 @@ Communikation = write_In_file("TCP_Verbindung_TEST.txt")
 #SRC_DST_IP/PORT
 ip_port = write_In_file("SRC_DST_IPPORT_TEST.txt")
 
-tcp_stream_index = total_features[:137952,0] #Index of Stream TCP + Src.ip etc
+tcp_stream_index = total_features[:132154,0] #Index of Stream TCP + Src.ip etc
 
-features = total_features[:137952,7:9] #Index
+features = total_features[:132154,7:9] #Index
 
 
 #Ausgewählte Features für TCP Verbidung
 commu_features = Communikation[:,1:2]
 
-"""
-print("Normierung")
-features = normalise_features(features)
+
+#print("Normierung")
+#features = normalise_features(features)
 
 #Erzeugung der Outlier Detection Models
 clf_pkt = outlier_detec()
@@ -170,4 +170,4 @@ prediction = outlier_standarisierung(outlier_pkt, klassification_comm)
 print("Writing a file out")
 
 write_to_outputCSV(ip_port, prediction)
-"""
+
